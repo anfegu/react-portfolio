@@ -1,8 +1,3 @@
 # React-portfolio
 
-A boilrplate react portfolio to showcase your projects and work
-
-
-Dummy-portfolio link -> https://shloksomani.github.io/react-portfolio/
-
-![](test.gif)
+This is my updated portfolio forked from a boilrplate react portfolio, it has my own changes to showcase my work.
