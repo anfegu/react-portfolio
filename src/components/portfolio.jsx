@@ -1,7 +1,7 @@
 import React from "react";
 
 //import stock
-import stock from "../img/image1.jpg";
+import stock from "../img/underconst.jpg";
 import stock1 from "../img/image2.jpg";
 import stock2 from "../img/image3.jpg";
 import stock3 from "../img/image4.jpg";
@@ -16,10 +16,10 @@ class Portfolio extends React.Component {
           <div className="row">
             <div className="col-sm-12">
               <div className="title-box text-center">
-                <h3 className="title-a">Portfolio</h3>
+                <h1 className="title-a">Portfolio</h1>
                 <p className="subtitle-a">
-                  Incididunt nostrud id aute culpa excepteur pariatur consequat
-                  elit culpa nulla enim anim incididunt.
+                  Here are some practical examples of my work. 
+                  No frills, just a peek into some projects that have shaped my coding skills.
                 </p>
                 <div className="line-mf"></div>
               </div>
@@ -35,7 +35,7 @@ class Portfolio extends React.Component {
                   <div className="work-content">
                     <div className="row">
                       <div className="col-sm-8">
-                        <h2 className="w-title">Lorem Ipsum</h2>
+                        <h2 className="w-title">Project #1</h2>
                         <div className="w-more">
                           <span className="w-ctegory">
                             HTML5 CSS3 Bootstrap ReactJS
@@ -96,7 +96,7 @@ class Portfolio extends React.Component {
                   <div className="work-content">
                     <div className="row">
                       <div className="col-sm-8">
-                        <h2 className="w-title">Lorem Ipsum</h2>
+                        <h2 className="w-title">Project #2</h2>
                         <div className="w-more">
                           <span className="w-ctegory">
                             HTML5 CSS3 Bootstrap Webpack SmoothScrolling
@@ -158,7 +158,7 @@ class Portfolio extends React.Component {
                   <div className="work-content">
                     <div className="row">
                       <div className="col-sm-8">
-                        <h2 className="w-title">Lorem Ipsum</h2>
+                        <h2 className="w-title">Project #3</h2>
                         <div className="w-more">
                           <span className="w-ctegory">
                             HTML5 CSS3 Bootstrap Webpack ReactJS
@@ -220,7 +220,7 @@ class Portfolio extends React.Component {
                   <div className="work-content">
                     <div className="row">
                       <div className="col-sm-8">
-                        <h2 className="w-title">Lorem Ipsum</h2>
+                        <h2 className="w-title">Project #4</h2>
                         <div className="w-more">
                           <span className="w-ctegory">
                             Bootstrap ReactJS GoogleAPI
@@ -281,7 +281,7 @@ class Portfolio extends React.Component {
                   <div className="work-content">
                     <div className="row">
                       <div className="col-sm-8">
-                        <h2 className="w-title">Lorem Ipsum</h2>
+                        <h2 className="w-title">Project #5</h2>
                         <div className="w-more">
                           <span className="w-ctegory">MERN</span>
                         </div>
@@ -340,7 +340,7 @@ class Portfolio extends React.Component {
                   <div className="work-content">
                     <div className="row">
                       <div className="col-sm-8">
-                        <h2 className="w-title">Lorem Ipsum</h2>
+                        <h2 className="w-title">Project #6</h2>
                         <div className="w-more">
                           <span className="w-ctegory">
                             HTML5 CSS3 Bootstrap MERN

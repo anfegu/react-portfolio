@@ -5,24 +5,29 @@ import Typed from "react-typed";
 class Intro extends React.Component {
   render() {
     return (
-      // <div id="home" className="intro route bg-image " style={{backgroundImage: "url("+bigImage+")"}}>
       <div id="home" className="intro route bg-image background">
-        <div id="stars" />
-        <div id="stars2" />
-        <div id="stars3" />
-
+        
         <div className="intro-content display-table">
           <div className="table-cell">
             <div className="container">
-              <h1 className="intro-title mb-4">Hello, I am XYZ</h1>
+              <h1 className="intro-title mb-5" role="presentation">
+                <span className="t-headline" 
+                      data-text="Hello, I'm Andres Felipe Gutierrez Fernandez"> 
+                                 Hello, I'm Andres Felipe Gutierrez Fernandez
+                </span> 
+              </h1> <br/>
+              <span className="sign"> 
+               An<span className="fast-flicker">f</span>eg<span className="flicker">u</span>
+              </span>
               <p className="intro-subtitle">
                 <span className="text-slider-items"></span>
                 <strong className="text-slider">
                   <Typed
                     strings={[
-                      "Front End Developer",
-                      "Back End Developer",
-                      "Software Engineer"
+                      "Blockchain Proficient",
+                      "Fullstack Developer",
+                      "Senior Software Engineer",
+                      "Financial Sector Specialist"
                     ]}
                     typeSpeed={80}
                     backDelay={1100}
@@ -33,11 +38,11 @@ class Intro extends React.Component {
               </p>
               <p className="pt-3">
                 <a
-                  className="btn btn-primary btn js-scroll px-4"
-                  href="#work"
+                  className="btn js-scroll px-4 intro-btn"
+                  href="#contact"
                   role="button"
                 >
-                  View My Work
+                  Contact To Work
                 </a>
               </p>
             </div>
