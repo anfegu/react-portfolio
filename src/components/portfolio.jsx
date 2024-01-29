@@ -1,12 +1,12 @@
 import React from "react";
 
 //import stock
-import stock from "../img/underconst.jpg";
-import stock1 from "../img/image2.jpg";
-import stock2 from "../img/image3.jpg";
-import stock3 from "../img/image4.jpg";
-import stock4 from "../img/image5.jpg";
-import stock5 from "../img/image6.jpg";
+import stock from  "../images/underconst.jpg";
+import stock1 from "../images/image2.jpg";
+import stock2 from "../images/image3.jpg";
+import stock3 from "../images/image4.jpg";
+import stock4 from "../images/image5.jpg";
+import stock5 from "../images/image6.jpg";
 
 class Portfolio extends React.Component {
   render() {

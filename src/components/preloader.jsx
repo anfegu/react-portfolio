@@ -1,23 +1,19 @@
-import React from 'react';
-import $ from 'jquery';
+import React, { useEffect } from 'react';
 
-class Preloader extends React.Component {
-    componentDidMount(){
-        $(window).on('load', function () {
-            if ($('#preloader').length) {
-              $('#preloader').delay(100).fadeOut('slow', function () {
-                $(this).remove();
-              });
-            }
-          });
+function Preloader() {
+  useEffect(() => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      setTimeout(() => {
+        preloader.style.opacity = 0; // Fade out
+        setTimeout(() => {
+          preloader.remove(); // Remove from DOM
+        }, 400); // Adjust timing for 'slow' fade
+      }, 100);
     }
+  }, []); // Run effect only once after component mounts
 
-    render(){
-        return <div id="preloader"></div>;
-    }
+  return <div id="preloader"></div>;
 }
 
 export default Preloader;
-
-
-

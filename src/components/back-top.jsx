@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
-import $  from 'jquery';
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,19 +20,16 @@ const BackToTop = () => {
     };
   }, []);
 
-  const scrollToTop = (event) => {
-    event.preventDefault();
-    $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
-    return false;
-  };
-
   return (
     <a
       href="#"
       className={`back-to-top animated ${isVisible ? 'fadeIn' : 'fadeOut'}`}
       style={{ display: isVisible ? 'block' : 'none' }}
-      onClick={scrollToTop}
       aria-label='Scroll To Top'
+      onClick={() => {
+        document.querySelector(".navbar-collapse").classList.remove("show");
+        document.querySelector(".navbar-toggler").classList.toggle("collapsed", true);
+      }}
     >
       <i className="fa fa-chevron-up"></i>
     </a>

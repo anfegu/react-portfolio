@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import imageOverlay from "../img/earth.jpg";
+import imageOverlay from "../images/earth.jpg";
 import validator from "validator";
 import emailjs from 'emailjs-com';
+import { toast } from 'sonner';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -62,11 +63,26 @@ const Contact = () => {
           subject: "",
           message: "",
         });
-        alert("Email sent successfully, we'll get back to you shortly.");
-        window.location.replace('/#home');
+        const promise = () => new Promise((resolve) => setTimeout(() => resolve({ name: formData.name, email: formData.email }), 1000));
+
+        toast.promise(promise, {
+          loading: 'Sending...',
+          success: (data) => {
+            return `Received! Thanks ${data.name}, I'll contact you soon! at ${data.email}`;
+          },
+          error: 'Error',
+        });
+        setTimeout(() => {
+          window.location.reload();
+          window.location.replace('/#home');
+        }, 5000);
+       
       } catch (error) {
-        alert("Error sending email, please try again later.");
-        window.location.reload();
+        toast.error("Error sending email, please try again later.");
+        console.error(error);
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
       }
     } else {
       console.error("Form validation failed");
@@ -90,6 +106,7 @@ const Contact = () => {
   
   return (
     <section
+      id="contact"
       className="paralax-mf footer-paralax bg-image sect-mt4 route"
       style={{ backgroundImage: `url(${imageOverlay})` }}
     >

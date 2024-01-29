@@ -1,6 +1,10 @@
 /*
 GENERAL STYLING
 */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #f5f5f5!important;
   color: #4e4e4e!important;
@@ -695,6 +699,21 @@ ABOUT
 .skill-mf .progress .progress-bar {
   height: .7rem;
   background-color: #04aec1;
+}
+
+.progress-trans {
+  padding-inline: 1rem;
+  display: grid; 
+  grid-template-rows: 0fr;
+  transition: .3s grid-template-rows ease-in-out;
+}
+
+.progress-cover:hover .progress-trans {
+  grid-template-rows: 1fr;
+}
+
+.progress-trans > div {
+  overflow: hidden;
 }
 
 /*

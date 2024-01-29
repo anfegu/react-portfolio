@@ -33,7 +33,7 @@ const About = () => {
                     </div>
                     <div className="float-md-right ml-md-2">
                       <img
-                        src={require("../img/me.jpeg")}
+                        src={require("../images/me.jpeg")}
                         alt="Anfegu"
                         className="intro-img"
                         style={{ width: "100%", height: "auto" }}
@@ -63,18 +63,26 @@ const About = () => {
                   <div className="skill-mf">
                     {skillsData.map((skill) => (
                       <React.Fragment key={skill.id}>
-                        <span>{skill.content}</span>{" "}
-                        <span className="pull-right">{calculateSkillValues(skill.years, skill.level).porcentage}</span>
-                        <div className="progress">
-                          <div
-                            className="progress-bar"
-                            role="progressbar"
-                            style={{ width: calculateSkillValues(skill.years, skill.level).porcentage }}
-                            aria-valuenow={skill.level}
-                            aria-valuemin="0"
-                            aria-valuemax="100"
-                            aria-label="{skill.content} - {calculateSkillValues(skill.years, skill.level).porcentage}"
-                          ></div>
+                        <div className="progress-cover"> 
+                          <span>{skill.content}</span>{" "}
+                          <span className="pull-right">{calculateSkillValues(skill.years, skill.level).porcentage}</span>
+                          <div className="progress">
+                            <div
+                              className="progress-bar"
+                              role="progressbar"
+                              style={{ width: calculateSkillValues(skill.years, skill.level).porcentage }}
+                              aria-valuenow={skill.level}
+                              aria-valuemin="0"
+                              aria-valuemax="100"
+                              aria-label="{skill.content} - {calculateSkillValues(skill.years, skill.level).porcentage}"
+                            ></div>
+                          </div>
+                          <div className="progress-trans">
+                            <div>
+                              {/*  Here the details about each skills */}
+                              <p> Test Content</p>
+                            </div>
+                          </div>
                         </div>
                       </React.Fragment>
                     ))}
