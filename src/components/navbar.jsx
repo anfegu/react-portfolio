@@ -15,6 +15,8 @@ const Navbar = () => {
       window.scrollTo({
         top: targetElement.offsetTop - ( window.innerWidth < 768 ? 70 : 90),
       });
+      // eslint-disable-next-line no-restricted-globals
+      history.replaceState({}, "", e.target.hash);
     }
   };
 
@@ -57,7 +59,7 @@ const Navbar = () => {
     const handleScroll = () => {
       const navbarElement = navbarRef.current;
     
-      if (window.pageYOffset === 0) {
+      if (window.pageYOffset < 150) {
         document.querySelector(".nav-link[href='#home']").classList.add("active");
         document.querySelector(".nav-link[href='#about']").classList.remove("active");
       } else {
@@ -72,7 +74,7 @@ const Navbar = () => {
                 document.querySelectorAll(".nav-link").forEach((link) => {
                   link.classList.remove("active");
                   if (link.getAttribute("href") === `#${entry.target.id}`) {
-                    link.classList.add("active");
+                    link.classList.add("active");       
                   }
                 });
               }
@@ -101,12 +103,10 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     document.querySelector(".navbar-nav").addEventListener("click", handleNavClick);
-    //$(".js-scroll").on("click", handleNavClick);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-     document.querySelector(".navbar-nav").removeEventListener("click", handleNavClick);
-      //$(".js-scroll").off("click", handleNavClick);
+      document.querySelector(".navbar-nav").removeEventListener("click", handleNavClick);
     };
   }, []); 
 
@@ -139,7 +139,7 @@ const Navbar = () => {
         <div className="navbar-collapse collapse justify-content-end" id="navbarDefault">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link js-scroll active" href="#home" >
+              <a className="nav-link js-scroll active" href="#home" onClick={handleSmoothScroll}>
                 Home
               </a>
             </li>

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 //import css in order
-import 'normalize.css';
 import './animate.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import './images/icons/css/ionicons.css';

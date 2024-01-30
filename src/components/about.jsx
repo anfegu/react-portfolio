@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
-import { skillsData, aboutMeData, careerYears } from "../utils/data";
+import * as data  from "../utils/data";
+import ExperienceRating from "../components/utils/xRating";
+
 const About = () => {
   const calculateSkillValues = (yearsOfExperience, level) => {
-    const experiencePercentage = (Math.min(yearsOfExperience, careerYears) / careerYears) * 0.5 * 100;
-    const levelPercentage = (Math.min(level, 4) / 4) * 0.5 * 100;
 
-    const totalValue= experiencePercentage + levelPercentage;
-    
+    const totalValue= (data.getLevelWeight[level] + 
+                      data.getExperienceWeight(yearsOfExperience) +
+                      data.getCareerRating()) / 3;
+
     return { porcentage: `${totalValue.toFixed(2)}%`, totalValue };
   };
 
   useEffect(() => {
-    skillsData.map(({ years, level, ...rest }) => {
+    data.skillsData.map(({ years, level, ...rest }) => {
       return {
         ...rest,
         ...calculateSkillValues(years, level),
@@ -40,7 +42,7 @@ const About = () => {
                       />
                     </div> 
                     <div>
-                      {aboutMeData.map((content) => (
+                      {data.aboutMeData.map((content) => (
                         <p
                           style={{ textAlign: "justify" }}
                           className="lead"
@@ -61,7 +63,7 @@ const About = () => {
                     </div>
                   </div>
                   <div className="skill-mf">
-                    {skillsData.map((skill) => (
+                    {data.skillsData.map((skill) => (
                       <React.Fragment key={skill.id}>
                         <div className="progress-cover"> 
                           <span>{skill.content}</span>{" "}
@@ -80,7 +82,9 @@ const About = () => {
                           <div className="progress-trans">
                             <div>
                               {/*  Here the details about each skills */}
-                              <p> Test Content</p>
+                              <ExperienceRating 
+                                percentageValue={calculateSkillValues(skill.years, skill.level).totalValue}
+                              />
                             </div>
                           </div>
                         </div>

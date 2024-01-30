@@ -1,42 +1,83 @@
 // All the data used in the project is stored in this file.
 
 // ****** ABOUT Component *******
-// Here goes the career years.
-export const careerYears = (new Date() - new Date("2012-06-25")) /  (1000 * 60 * 60 * 24 * 365.25); //Calculate from June 25, 2012. This is when I started my career.
 
-/*Years of Experience:
-0-1 years: Novice
-1-3 years: Intermediate
-3-5 years: Advanced
-5+ years: Expert
+/* Career years.
+1-3 years = 10
+4-6 years = 30
+7-10 years = 50
+11-15 years = 70
+16-20 years = 90
+21+ years = 100 */
 
-Level Rating:
-1: Novice
-2: Intermediate
-3: Advanced
-4: Expert */
+//Calculate from June 25, 2012. This is when I started my career.
+const getCareerYears = (new Date() - new Date("2012-06-25")) / (1000 * 60 * 60 * 24 * 365.25); 
 
-// Here goes the list of skills, years of experience and level rating of each one.
+export const getCareerRating = () => {
+  return (
+    (getCareerYears < 4 ? 10  : 
+     getCareerYears < 7 ? 30  : 
+     getCareerYears < 11 ? 50 : 
+     getCareerYears < 16 ? 70 : 
+     getCareerYears < 21 ? 90 : 100));
+}
+
+/* Years of Experience:
+1 year = 10
+2-4 years = 30
+5-8 years = 50
+9-12 years = 70
+13-15 years = 90
+16+ years = 100 */
+export const getExperienceWeight = (years) => {
+  if ((years + 3) >= getCareerYears) return 80;
+  if (years < 2) return 10;
+  if (years < 5) return 30;
+  if (years < 9) return 50;
+  if (years < 13) return 70;
+  if (years < 16) return 90;
+  return 100;
+
+};
+
+/* Level Rating:
+1 = 10. Novice: Basic familiarity, early stages of learning foundational skills.
+2 = 30. Beginner Intermediate: Developing foundational understanding, may require guidance for advanced features.
+3 = 50. Intermediate: Good proficiency, can work independently on routine tasks, comfortable with moderate complexity.
+4 = 70. Advanced Intermediate: Handles more complex tasks within specific technologies, approaching advanced proficiency.
+5 = 90. Proficient: High proficiency in multiple technologies, works independently, demonstrates mastery.
+6 = 100. Expert: Recognized as an expert, comprehensive knowledge, excels at solving complex problems, significant contributions to specific technologies. */
+
+export const getLevelWeight = {
+  1: 10,
+  2: 30,
+  3: 50,
+  4: 70,
+  5: 90,
+  6: 100
+}
+
+// Here goes the list of skills, weighted by years of experience and level rating of each one.
 export const skillsData = [
-    { id: "Rust_skill", content: "Rust", years: 4, level: 4 },
-    { id: "JavaScript_skill", content: "JavaScript", years: 9, level: 3 },
-    { id: "React_skill", content: "ReactJS", years: 6, level: 3},
+    { id: "Rust_skill", content: "Rust", years: 5, level: 5 },
+    { id: "JavaScript_skill", content: "JavaScript", years: 8, level: 5},
+    { id: "React_skill", content: "ReactJS", years: 6, level: 5},
     { id: "TypeScript_skill", content: "TypeScript", years: 5, level: 3},
-    { id: "HTML5_skill", content: "HTML5", years: 7, level: 3 },
-    { id: "CSS3_skill", content: "CSS3", years: 7, level: 3 },
+    { id: "HTML5_skill", content: "HTML5", years: 7, level: 4 },
+    { id: "CSS3_skill", content: "CSS3", years: 7, level: 4 },
     { id: "node_skill", content: "NodeJS", years: 5, level: 4},
     { id: "Express_skill", content: "ExpressJS", years: 5, level: 4},
-    { id: "SQL_skill", content: "SQL", years: 10, level: 4 },
+    { id: "SQL_skill", content: "SQL", years: 10, level: 6 },
     { id: "mongo_skill", content: "MongoDB", years: 4, level: 4},
     { id: "Blockchain_skill", content: "Blockchain", years: 5, level: 4},
-    { id: "Solidity_skill", content: "Solidity", years: 3, level: 3},
+    { id: "Solidity_skill", content: "Solidity", years: 3, level: 4},
     { id: "Web3_skill", content: "Web3", years: 4, level: 4},
     { id: "Ethereum_skill", content: "Ethereum", years: 4, level: 3},
-    { id: "Solana_skill", content: "Solana", years: 2, level: 3},
+    { id: "Solana_skill", content: "Solana", years: 3, level: 4},
     { id: "Git_skill", content: "Git", years: 7, level: 4},
-    { id: "NPM_skill", content: "NPM", years: 7, level: 4},
+    { id: "NPM_skill", content: "NPM", years: 7, level: 5},
     { id: "Webpack_skill", content: "Webpack", years: 8, level: 4},
-    { id: "IPFS_skill", content: "IPFS", years: 3, level: 3},
+    { id: "IPFS_skill", content: "IPFS", years: 3, level: 4},
     { id: "ReactNative_skill", content: "ReactNative", years: 3, level: 3},
     { id: "Flutter_skill", content: "Flutter", years: 3, level: 3},
     { id: "Docker_skill", content: "Docker", years: 5, level: 3},

@@ -1033,3 +1033,24 @@ BUTTON
   background-color: #046; /* Darker shade on hover */
   color: #fff;
 }
+
+/* Experience Rating > About */
+
+.rating-level {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 0px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.rating-level-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.rating-range {
+  font-size: 16px;
+  color: #555;
+}
