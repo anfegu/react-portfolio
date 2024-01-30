@@ -11,15 +11,15 @@ const ExperienceRating = ({ percentageValue }) => {
   let levelComponent;
 
   if (percentageValue <= 20) {
-    levelComponent = <RatingLevel title="Novice" range="Up to 20% (0-20%)" value={percentageValue}/>;
+    levelComponent = <RatingLevel title="Novice" range="Up to 20%" value={percentageValue}/>;
   } else if (percentageValue <= 40) {
-    levelComponent = <RatingLevel title="Beginner" range="21% to 40% (21-40%)" value={percentageValue}/>;
+    levelComponent = <RatingLevel title="Beginner" range="21% to 40%" value={percentageValue}/>;
   } else if (percentageValue <= 60) {
-    levelComponent = <RatingLevel title="Intermediate" range="41% to 60% (41-60%)" value={percentageValue} />;
+    levelComponent = <RatingLevel title="Intermediate" range="41% to 60%" value={percentageValue} />;
   } else if (percentageValue <= 80) {
-    levelComponent = <RatingLevel title="Advanced" range="61% to 80% (61-80%)" value={percentageValue}/>;
+    levelComponent = <RatingLevel title="Advanced" range="61% to 80%" value={percentageValue}/>;
   } else {
-    levelComponent = <RatingLevel title="Expert" range="81% to 100% (81-100%)" value={percentageValue}/>;
+    levelComponent = <RatingLevel title="Expert" range="81% to 100%" value={percentageValue}/>;
   }
 
   return (

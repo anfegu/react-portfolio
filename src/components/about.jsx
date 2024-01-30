@@ -67,7 +67,7 @@ const About = () => {
                       <React.Fragment key={skill.id}>
                         <div className="progress-cover"> 
                           <span>{skill.content}</span>{" "}
-                          <span className="pull-right">{calculateSkillValues(skill.years, skill.level).porcentage}</span>
+                          <span className="pull-right">{skill.years} years</span>
                           <div className="progress">
                             <div
                               className="progress-bar"
