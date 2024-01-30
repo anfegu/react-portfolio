@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://anfeguweb.vercel.app/react-portfolio/",
+  "homepage": "https://anfeguweb.vercel.app/",
   "dependencies": {
     "@babel/preset-env": "^7.23.8",
     "bootstrap": "^4.3.1",
