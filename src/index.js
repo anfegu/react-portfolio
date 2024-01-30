@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 //import css in order
 import 'normalize.css';
@@ -28,7 +28,8 @@ import Preloader from './components/preloader';
 import { Toaster } from 'sonner';
 
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
     <React.Fragment>
         <Navbar />
         <Intro />
@@ -38,8 +39,8 @@ ReactDOM.render(
         <BackToTop />
         <Preloader />
         <Toaster richColors position="bottom-center" expand={true}/>
-    </React.Fragment>,
-document.getElementById('root'));
+    </React.Fragment>
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
