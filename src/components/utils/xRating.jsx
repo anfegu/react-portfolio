@@ -1,30 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Sparkles } from './sparkle';
+import * as data from '../../utils/data';
+import Typed from 'react-typed';
 
-const RatingLevel = ({ title, range, value }) => (
-  <div style={{ background: `linear-gradient(to right, #04aec1 ${value}%, #cde1f8 ${100 - value}% 100%)` }} className="rating-level">
-    <div className="rating-level-title">{title}</div>
-    <div className="rating-range">{range}</div>
-  </div>
-);
-
-const ExperienceRating = ({ percentageValue }) => {
-  let levelComponent;
-
-  if (percentageValue <= 20) {
-    levelComponent = <RatingLevel title="Novice" range="Up to 20%" value={percentageValue}/>;
-  } else if (percentageValue <= 40) {
-    levelComponent = <RatingLevel title="Beginner" range="21% to 40%" value={percentageValue}/>;
-  } else if (percentageValue <= 60) {
-    levelComponent = <RatingLevel title="Intermediate" range="41% to 60%" value={percentageValue} />;
-  } else if (percentageValue <= 80) {
-    levelComponent = <RatingLevel title="Advanced" range="61% to 80%" value={percentageValue}/>;
-  } else {
-    levelComponent = <RatingLevel title="Expert" range="81% to 100%" value={percentageValue}/>;
-  }
-
+const RatingLevel = ({ title, value, isHovered, years }) => {
+  const formattedString = `${title} - Experience: <h5> ~&nbsp;${years} years </h5>`;
+  const textWidth = isHovered ? value : 0;
   return (
-    <div>
-      {levelComponent}
+    <div className={`rating-level ${isHovered ? 'hovered' : ''}`}>
+      <div className="overlay-bar" style={{ width: `${textWidth}%` }}></div>
+      {isHovered && (
+        <Sparkles>
+          <div className="rating-level-title"> 
+            <Typed     
+                strings={[
+                  formattedString
+                ]}
+                typeSpeed={25}    
+                style={{alignItems: "baseline", display: "flex", justifyContent: "center"}}
+            />
+           </div>
+         {/*  <div className="rating-level-title" dangerouslySetInnerHTML={{ __html: formattedString }}>
+          {`${title} ${'\u00A0'.repeat(Math.round(value) - 43)} Exp: <b>${years}</b>  years`}
+         </div> */}
+        </Sparkles>
+      )}
+    </div>
+  );
+};
+
+const calculateSkillValues = (yearsOfExperience, level) => 
+  (data?.getLevelWeight[level] + 
+  data?.getExperienceWeight(yearsOfExperience) +
+  data?.getCareerRating()) / 3;
+
+const ExperienceRating = ({ yearsOfExperience, level }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const percentageValue = calculateSkillValues(yearsOfExperience, level);
+  return (
+    <div onMouseEnter={() => setIsHovered(true)}
+    onMouseLeave={() => setIsHovered(false)}>
+      <RatingLevel
+        title={
+          percentageValue <= 20
+            ? 'Novice'
+            : percentageValue <= 40
+            ? 'Beginner'
+            : percentageValue <= 60
+            ? 'Intermediate'
+            : percentageValue <= 80
+            ? 'Advanced'
+            : 'Expert'
+        }
+        value={percentageValue}
+        isHovered={isHovered}
+        years={yearsOfExperience}
+      />
     </div>
   );
 };

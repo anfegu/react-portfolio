@@ -701,20 +701,21 @@ ABOUT
   background-color: #04aec1;
 }
 
-.progress-trans {
+/* remember save this for a div you want to spread over dynamically */
+/* .progress-trans {
   padding-inline: 1rem;
   display: grid; 
   grid-template-rows: 0fr;
   transition: .3s grid-template-rows ease-in-out;
-}
+} */
 
-.progress-cover:hover .progress-trans {
+/* .progress-cover:hover .progress-trans {
   grid-template-rows: 1fr;
-}
+} */
 
-.progress-trans > div {
-  overflow: hidden;
-}
+/* .progress-trans > div {
+  overflow: hidden; 
+} */
 
 /*
 PORTFOLIO
@@ -770,48 +771,6 @@ PORTFOLIO
 
 .w-title {
   font-size: 1.2rem;
-}
-
-/*
-TESTIMONIALS
-*/
-
-.testimonials .owl-carousel .owl-item img {
-  width: auto;
-}
-
-.testimonial-box {
-  color: #fff;
-  text-align: center;
-}
-
-.testimonial-box .author-test {
-  margin-top: 1rem;
-}
-
-.testimonial-box .author-test img {
-  margin: 0 auto;
-}
-
-.testimonial-box .author {
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin: 1rem 0;
-  display: block;
-  font-size: 1.4rem;
-}
-
-.testimonial-box .comit {
-  font-size: 2rem;
-  color: #068;
-  background-color: #fff;
-  width: 52px;
-  height: 52px;
-  display: block;
-  margin: 0 auto;
-  border-radius: 50%;
-  line-height: 1.6;
 }
 
 /*
@@ -979,9 +938,7 @@ BUTTON
     font-size: 3.5rem;
   }
 
-  .testimonial-box .description {
-    padding: 0 5rem;
-  }
+
 
   .post-box,
   .form-comments,
@@ -1037,20 +994,31 @@ BUTTON
 /* Experience Rating > About */
 
 .rating-level {
+  position: relative;
   margin-bottom: 10px;
-  padding: 5px;
+  padding: 10px;
   border: 0px solid #ccc;
   border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 5px 5px rgba(0.2, 0.5, 0.5, 0.3);
+  background: #cde1f8;
 }
 
 .rating-level-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #fff;
 }
 
-.rating-range {
-  font-size: 16px;
-  color: #555;
+.overlay-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  background: #04aec1;
+  height: 100%;
+  transition: width 1s ease-in-out;
+}
+
+.rating-level.hovered .overlay-bar {
+  width: 100%;
 }
