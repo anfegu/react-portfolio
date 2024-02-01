@@ -59,28 +59,27 @@ export const getLevelWeight = {
 
 // Here goes the list of skills, weighted by years of experience and level rating of each one.
 export const skillsData = [
-    { id: "Rust_skill", content: "Rust", years: 3, level: 5 },
-    { id: "JavaScript_skill", content: "JavaScript", years: 8, level: 5},
-    { id: "React_skill", content: "ReactJS", years: 6, level: 5},
-    { id: "TypeScript_skill", content: "TypeScript", years: 3, level: 3},
-    { id: "HTML5_skill", content: "HTML5", years: 7, level: 4 },
-    { id: "CSS3_skill", content: "CSS3", years: 7, level: 4 },
-    { id: "node_skill", content: "NodeJS", years: 5, level: 4},
-    { id: "Express_skill", content: "ExpressJS", years: 5, level: 4},
-    { id: "SQL_skill", content: "SQL", years: 10, level: 6 },
-    { id: "mongo_skill", content: "MongoDB", years: 4, level: 4},
-    { id: "Blockchain_skill", content: "Blockchain", years: 4, level: 6},
-    { id: "Solidity_skill", content: "Solidity", years: 3, level: 4},
-    { id: "Web3_skill", content: "Web3", years: 4, level: 4},
-    { id: "Ethereum_skill", content: "Ethereum", years: 4, level: 3},
-    { id: "Solana_skill", content: "Solana", years: 3, level: 4},
-    { id: "Git_skill", content: "Git", years: 8, level: 4},
-    { id: "NPM_skill", content: "NPM", years: 8, level: 5},
-    { id: "Webpack_skill", content: "Webpack", years: 6, level: 4},
-    { id: "IPFS_skill", content: "IPFS", years: 3, level: 4},
-    { id: "ReactNative_skill", content: "ReactNative", years: 3, level: 3},
-    { id: "Flutter_skill", content: "Flutter", years: 3, level: 3},
-    { id: "Docker_skill", content: "Docker", years: 5, level: 3},
+    { id: "Rust_skill", content: "Rust", years: 3, level: 5, description:"Features and APIs with async frameworks, developed with a focus on memory safety, ownership, & robust error handling"},
+    { id: "JavaScript_skill", content: "JavaScript", years: 8, level: 5, description:"Build interactive web applications harnessing the versatility of scripting for enhanced user & dev experiences"},
+    { id: "React_skill", content: "React", years: 6, level: 5, description:"Streamlined complex UIs & native-looking mobile apps with React's efficient, functional component-based approach"},
+    { id: "TypeScript_skill", content: "TypeScript", years: 3, level: 3, description:"Ensured code quality and maintainability with TypeScript's optional static typing"},
+    { id: "HTML5_skill", content: "HTML5", years: 7, level: 4 , description:"Mastered web page structure and styling, bringing designs to life with modern standards"},
+    { id: "CSS3_skill", content: "CSS3", years: 7, level: 4, description:"Mastered web page structure and styling, bringing designs to life with modern standards"},
+    { id: "node_skill", content: "NodeJS", years: 5, level: 4, description:"Empowered full-stack development, seamlessly bridging frontend and backend with JavaScript"},
+    { id: "Express_skill", content: "ExpressJS", years: 5, level: 4, description:"Empowered full-stack development, seamlessly bridging frontend and backend with JavaScript"},
+    { id: "SQL_skill", content: "SQL", years: 10, level: 6, description:"Navigated both relational and non-relational data realms, ensuring efficient data storage and retrieval"},
+    { id: "mongo_skill", content: "MongoDB", years: 4, level: 4, description:"Navigated both relational and non-relational data realms, ensuring efficient data storage and retrieval"},
+    { id: "Blockchain_skill", content: "Blockchain", years: 4, level: 6, description:"Navigated the decentralized world, crafting solutions that leverage transparency, security and immutability"},
+    { id: "Solidity_skill", content: "Solidity", years: 3, level: 4, description:"Unlocked blockchain potential, crafting smart contracts and dApps that interact with decentralized networks"},
+    { id: "Web3_skill", content: "Web3", years: 4, level: 4, description:"Unlocked blockchain potential, crafting smart contracts and dApps that interact with decentralized networks"},
+    { id: "Ethereum_skill", content: "Ethereum", years: 4, level: 3, description:"Explored leading blockchain platforms, understanding their strengths and trade-offs for various use cases"},
+    { id: "Solana_skill", content: "Solana", years: 3, level: 4, description:"Explored leading blockchain platforms, understanding their strengths and trade-offs for various use cases"},
+    { id: "Git_skill", content: "Git", years: 8, level: 4, description:"Collaborated effectively and managed dependencies, ensuring smooth project development and version control"},
+    { id: "NPM_skill", content: "NPM", years: 8, level: 5, description:"Collaborated effectively and managed dependencies, ensuring smooth project development and version control"},
+    { id: "Webpack_skill", content: "Webpack", years: 6, level: 4, description:"Conquered complex module bundling, optimizing JavaScript applications for performance"},
+    { id: "IPFS_skill", content: "IPFS", years: 3, level: 4, description:"Championed decentralized storage, building applications that leverage its censorship resistance and distribution"},
+    { id: "Flutter_skill", content: "Flutter", years: 3, level: 3, description:"Expanded reach across platforms, creating native-looking mobile apps with Dart proficiency"},
+    { id: "Docker_skill", content: "Docker", years: 5, level: 3, description:"Streamlined deployments, packaging applications for consistent and portable environments"},
 
  ];
  
@@ -89,25 +88,26 @@ export const skillsData = [
     {
       id: "first-p-about",
       content:
-        "As a software analyst and developer with over a decade of seasoned experience, I specialize in architecting and developing high-performance IT solutions across various programming languages and frameworks. My expertise includes seamless systems integration, covering both client-side and server-side aspects of holistic application development. Throughout the years, I've refined my skills to deliver robust and efficient software solutions that adapt to the ever-evolving needs of the digital landscape."
+        "As a software analyst and developer with over a decade of seasoned experience, I specialize in architecting and developing high-performance IT solutions across various programming languages and frameworks. My expertise includes seamless systems integration, covering both client-side and server-side aspects. Throughout the years, I've refined my skills to deliver robust and efficient software solutions that adapt to the ever-evolving needs of the digital landscape."
     },
     {
       id: "second-p-about",
       content:
-        "In the field of technology solutions, I enjoy contributing to innovative projects, especially within the dynamic domain of blockchain technology. Working collaboratively, I focus on system optimization, designing scalable architectures, and steering the development of cutting-edge applications. This dedication allows me to stay at the forefront of technological advancements and make impactful contributions in a constantly changing environment. My commitment is to push the boundaries of what is possible, ensuring that the solutions I contribute to are not only efficient but also well-aligned with the latest technological trends."
+        "In the field of technology solutions, I enjoy contributing to innovative projects, especially within the dynamic domain of blockchain technology. Working collaboratively, I focus on system optimization, designing scalable architectures, and steering the development of cutting-edge applications. My commitment is to push boundaries and align solutions with the latest technological trends."
     },
     {
       id: "third-p-about",
       content:
-        "In holistic app development, my versatile skill set enables seamless navigation between the user interface and server logic, fostering a comprehensive approach to crafting software solutions. With extensive experience, I've cultivated a profound understanding of the intricacies involved in creating high-performance IT solutions, making me a reliable and proficient professional in the field. Whether delving into Rust, mastering JavaScript nuances, or architecting scalable APIs, my dedication to excellence and staying ahead in the fast-paced world of technology remains unwavering."
+        "I possess a versatile skill set for holistic app development. I've gained insights into creating IT solutions, working with Rust, JavaScript, and building scalable APIs. I aim for excellence and stay updated in the tech world."
     }
  ];
- 
+
+ // Here goes the tech icons 
  export const techIcons = {
   Title: (
     <svg width="80" height="80" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M816.4 771.2H185.8c-11.5 0-20-10.9-17-22.1l45.7-173.7c2-7.7 9-13.1 17-13.1h539.1c8 0 15 5.4 17 13.1l45.7 173.7c3 11.2-5.4 22.1-16.9 22.1z m-573.5-43.9h516.4c11.5 0 20-10.9 17-22.1l-22.6-85.8c-2-7.7-9-13.1-17-13.1H265.4c-8 0-15 5.4-17 13.1l-22.6 85.8c-2.9 11.1 5.5 22.1 17.1 22.1z" fill="#333333"></path><path d="M259.6 210.5h483.8c12.1 0 22 9.8 22 22v318.9c0 12.1-9.8 22-22 22H259.6c-12.1 0-22-9.8-22-22v-319c0-12.1 9.9-21.9 22-21.9z" fill="#FFFFFF"></path><path d="M787.4 595.3H215.6V232.4c0-24.3 19.7-44 44-44h483.8c24.3 0 44 19.7 44 44v362.9zM259.6 232.4v318.9h483.8V232.4H259.6z" fill="#333333"></path><path d="M569.943 598.468l43.67-5.364 17.42 141.828-43.67 5.364zM372.01 735.071l17.42-141.828 43.67 5.364-17.42 141.828z" fill="#333333"></path><path d="M215.6 639.3h582.8v44H215.6z" fill="#333333"></path><path d="M351.1 276.4h300.8c26.3 0 47.5 21.3 47.5 47.5v146.8c0 26.3-21.3 47.5-47.5 47.5H351.1c-26.3 0-47.5-21.3-47.5-47.5V324c0-26.3 21.3-47.6 47.5-47.6z" fill="#F4CE26"></path><path d="M655.5 518.3H347.6c-24.3 0-44-19.7-44-44V320.4c0-24.3 19.7-44 44-44h307.9c24.3 0 44 19.7 44 44v153.9c0 24.3-19.8 44-44 44zM347.6 320.4v153.9h307.9V320.4H347.6z" fill="#333333"></path></g></svg>
   ),
-  ReactJS: (
+  React: (
     <svg width="40" height="40" fill="#000000" viewBox="0 -1.5 27 27" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m15.902 11.974c0 1.331-1.079 2.41-2.41 2.41s-2.41-1.079-2.41-2.41 1.079-2.41 2.41-2.41 2.41 1.079 2.41 2.41z"></path><path d="m13.491 17.494c-.201.005-.438.008-.676.008-2.811 0-5.522-.425-8.073-1.214l.193.051c-1.351-.436-2.522-1.079-3.541-1.903l.021.016c-.789-.571-1.32-1.455-1.41-2.467l-.001-.013c0-1.594 1.747-3.154 4.681-4.172 2.512-.827 5.403-1.304 8.405-1.304.139 0 .278.001.417.003h-.021c.116-.002.252-.003.389-.003 2.965 0 5.82.469 8.496 1.337l-.195-.055c1.305.424 2.438 1.036 3.433 1.814l-.024-.018c.775.546 1.298 1.404 1.386 2.387l.001.013c0 1.656-1.954 3.332-5.103 4.374-2.363.729-5.08 1.149-7.895 1.149-.17 0-.339-.002-.508-.005h.025zm0-9.84c-.106-.002-.232-.002-.358-.002-2.881 0-5.656.452-8.259 1.289l.191-.053c-2.698.941-3.908 2.228-3.908 3.087 0 .893 1.301 2.3 4.153 3.274 2.249.697 4.834 1.099 7.513 1.099.235 0 .469-.003.702-.009l-.034.001c.146.003.318.005.49.005 2.684 0 5.274-.4 7.715-1.143l-.187.049c2.96-.984 4.32-2.391 4.32-3.28-.102-.638-.462-1.176-.966-1.515l-.008-.005c-.866-.674-1.876-1.217-2.97-1.574l-.07-.02c-2.368-.766-5.093-1.208-7.92-1.208-.142 0-.283.001-.424.003h.021z"></path><path d="m8.023 23.986c-.016 0-.035.001-.053.001-.453 0-.878-.119-1.245-.327l.013.007c-1.378-.8-1.858-3.092-1.28-6.141.697-3.128 1.827-5.894 3.344-8.4l-.069.124c1.499-2.655 3.31-4.926 5.425-6.872l.02-.018c.923-.844 2.003-1.537 3.187-2.028l.073-.027c.407-.196.885-.31 1.39-.31.501 0 .976.113 1.4.314l-.02-.008c1.435.826 1.911 3.36 1.238 6.606-.72 2.967-1.818 5.58-3.262 7.959l.07-.123c-1.452 2.63-3.209 4.882-5.266 6.819l-.014.013c-.958.877-2.083 1.59-3.321 2.082l-.074.026c-.46.181-.992.292-1.549.305h-.006zm1.205-14.447.499.288c-1.381 2.28-2.465 4.926-3.106 7.74l-.034.18c-.533 2.809-.019 4.498.72 4.926.191.102.417.161.657.161.02 0 .041 0 .061-.001h-.003c.955 0 2.458-.605 4.196-2.122 1.976-1.867 3.654-4.023 4.972-6.404l.068-.135c1.318-2.156 2.371-4.653 3.025-7.307l.038-.182c.629-3.058.086-4.93-.686-5.378-.238-.094-.514-.148-.802-.148-.364 0-.708.087-1.012.24l.013-.006c-1.118.465-2.078 1.086-2.907 1.846l.007-.006c-2.041 1.881-3.772 4.057-5.136 6.468l-.069.132z"></path><path d="m18.96 24c-1.306 0-2.96-.787-4.69-2.276-2.175-1.983-4.017-4.282-5.464-6.834l-.072-.137c-1.43-2.349-2.551-5.075-3.215-7.975l-.036-.185c-.162-.709-.255-1.522-.255-2.357 0-.527.037-1.044.108-1.551l-.007.058c.085-.998.608-1.858 1.372-2.399l.01-.007c1.43-.83 3.865.024 6.342 2.228 2.022 1.914 3.748 4.113 5.118 6.54l.072.138c1.428 2.297 2.557 4.961 3.242 7.798l.038.186c.163.709.257 1.524.257 2.36 0 .577-.044 1.143-.13 1.696l.008-.062c-.103 1.022-.644 1.901-1.429 2.456l-.011.007c-.348.199-.764.316-1.207.316-.018 0-.036 0-.054-.001h.003zm-9.228-9.823c1.458 2.571 3.217 4.771 5.271 6.656l.02.018c2.166 1.863 3.884 2.266 4.628 1.834.773-.446 1.339-2.276.754-5.233-.702-2.89-1.787-5.434-3.219-7.741l.065.112c-1.379-2.456-3.027-4.562-4.948-6.384l-.012-.011c-2.334-2.074-4.225-2.54-4.998-2.094-.473.385-.784.952-.825 1.593v.007c-.055.39-.086.84-.086 1.298 0 .757.086 1.493.248 2.201l-.013-.066c.673 2.952 1.747 5.559 3.182 7.924l-.066-.117z"></path></g></svg>
   ),
   JavaScript: (
@@ -164,6 +164,9 @@ export const skillsData = [
   ), 
   Docker: (
     <svg width="40" height="40" fill="#000000" viewBox="0 -5 34 34" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m15.21 10.923v-3.159h3.533v3.159zm3.533-10.923v3.267h-3.533v-3.267zm4.177 7.77v3.159h-3.533v-3.159zm-8.353-3.855v3.213h-3.533v-3.213zm4.177 0v3.213h-3.534v-3.213zm14.834 5.348.696.482-.482.914c-.504.998-1.377 1.749-2.434 2.081l-.029.008c-.662.205-1.423.324-2.211.324-.07 0-.139-.001-.208-.003h.01c-1.36 3.409-3.692 6.19-6.652 8.072l-.068.041c-2.937 1.771-6.484 2.819-10.276 2.819-.2 0-.398-.003-.597-.009l.029.001q-5.89 0-8.889-3.534c-.957-1.185-1.68-2.603-2.072-4.152l-.016-.076c-.239-.864-.377-1.857-.377-2.881 0-.551.04-1.094.117-1.624l-.007.06h23.294c.044.001.096.002.148.002.885 0 1.719-.219 2.451-.605l-.029.014c-.416-.669-.663-1.481-.663-2.35 0-.153.008-.304.023-.453l-.002.019c.049-1.036.361-1.991.871-2.809l-.014.025.536-.75.75.536c1.139.766 1.944 1.956 2.189 3.339l.005.031c.39-.062.841-.097 1.299-.097.307 0 .61.016.909.047l-.037-.003c.647.024 1.245.22 1.753.542l-.014-.009zm-27.363-1.499v3.159h-3.534v-3.159zm4.177 0v3.159h-3.532v-3.159zm4.177 0v3.159h-3.535v-3.159zm-4.178-3.855v3.213h-3.531v-3.213z"></path></g></svg>
+  ),
+  Web3: (
+    <svg width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M20.501 6.028V6h-.02A10.28 10.28 0 0 0 4.519 6H4.5v.028a10.262 10.262 0 0 0 0 12.944V19h.02a10.28 10.28 0 0 0 15.962 0h.021v-.028a10.262 10.262 0 0 0 0-12.944zM13 6V3.272A4.533 4.533 0 0 1 15.54 6zm2.935 1a16.827 16.827 0 0 1 .853 5H13V7zM12 3.272V6H9.46A4.533 4.533 0 0 1 12 3.272zM12 7v5H8.212a16.827 16.827 0 0 1 .853-5zm-4.787 5H3.226a9.234 9.234 0 0 1 1.792-5h2.984a17.952 17.952 0 0 0-.79 5zm0 1a17.952 17.952 0 0 0 .789 5H5.018a9.234 9.234 0 0 1-1.792-5zm1 0H12v5H9.065a16.827 16.827 0 0 1-.853-5zM12 19v2.728A4.533 4.533 0 0 1 9.46 19zm1 2.728V19h2.54A4.533 4.533 0 0 1 13 21.728zM13 18v-5h3.788a16.827 16.827 0 0 1-.853 5zm4.787-5h3.987a9.234 9.234 0 0 1-1.792 5h-2.984a17.952 17.952 0 0 0 .79-5zm0-1a17.952 17.952 0 0 0-.789-5h2.984a9.234 9.234 0 0 1 1.792 5zm1.352-6h-2.501a8.524 8.524 0 0 0-1.441-2.398A9.306 9.306 0 0 1 19.139 6zM9.803 3.602A8.524 8.524 0 0 0 8.363 6H5.86a9.306 9.306 0 0 1 3.942-2.398zM5.861 19h2.501a8.524 8.524 0 0 0 1.441 2.398A9.306 9.306 0 0 1 5.861 19zm9.336 2.398A8.524 8.524 0 0 0 16.637 19h2.502a9.306 9.306 0 0 1-3.942 2.398z"></path><path fill="none" d="M0 0h24v24H0z"></path></g></svg>
   )
-  // Add more icons for other languages/frameworks
+  // Add more icons for other technologies
 };

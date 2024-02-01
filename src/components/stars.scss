@@ -12,9 +12,9 @@
 .t-headline {
   position: relative;
   text-transform:none;
-  display: -webkit-flex;
+ /*  display: -webkit-flex; */
   display: flex;
-  -webkit-align-items: center;
+ /*  -webkit-align-items: center; */
   align-items: center;
   width: auto;
   color: transparent;
@@ -23,15 +23,16 @@
     #38575f,
     #057,
     #068,
-    #739494,
+    #4d7878,
     #068,
-    #739494,
+    #057,
+    #4d7878,
     #057,
     #068,
     #38575f,
     #046
   );
-  -webkit-background-clip: text;
+  /* -webkit-background-clip: text; */
   background-clip: text;
   /* Inside auto layout */
   flex:content;
@@ -69,18 +70,29 @@
 
 @keyframes swing{
   0%{
-     -webkit-clip-path: ellipse(120px 120px at -2.54% -9.25%);
+     /* -webkit-clip-path: ellipse(120px 120px at -2.54% -9.25%); */
     clip-path: ellipse(120px 120px at -2.54% -9.25%)
   }
   50%{
-    -webkit-clip-path: ellipse(120px 120px at 49.66% 64.36%);
+    /* -webkit-clip-path: ellipse(120px 120px at 49.66% 64.36%); */
     clip-path: ellipse(120px 120px at 49.66% 64.36%);
 
   }
   100%{
-     -webkit-clip-path: ellipse(120px 120px at 102.62% -1.61%);
+     /* -webkit-clip-path: ellipse(120px 120px at 102.62% -1.61%); */
     clip-path: ellipse(120px 120px at 102.62% -1.61%);
   }
+}
+
+@media only screen and (max-width: 768px) {
+  /* .t-headline{
+    color: #068;
+  } */
+  .t-headline:before{
+    animation: none;
+    background: none;
+  }
+
 }
 
 /* NEON */

@@ -4,26 +4,28 @@ import * as data  from "../../utils/data";
 function Slide() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
-        {
-            title: 'TECH SKILLS',
-            svgTitle: data.techIcons["Title"],
-        }
-    ]
+    { title: 'TECH SKILLS',
+      svgTitle: data.techIcons["Title"],
+    }
+  ];
 
   for (let i = 0; i < data.skillsData.length; i++) {
     if (!data.techIcons[data.skillsData[i].content]) {
       continue;
     }
     slides.push({
-    title: data.skillsData[i].content,
-    svg: data.techIcons[data.skillsData[i].content],
+        title: data.skillsData[i].content,
+        svg: data.techIcons[data.skillsData[i].content],
+        description: data.skillsData[i].description
     });
   }
+
+  slides.push(slides[0]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 3000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
@@ -111,11 +113,9 @@ function Slide() {
           )}
           
           {slide.description && (
-            <div>
+            <div style={{fontSize: '0.9em', fontWeight:'bolder', textAlign: 'center'}}>
               <p className="card-text">
-                <strong>Level:</strong> {slide.description} ({slide.level * 10}%)
-                <br />
-                <strong>Experience:</strong> {slide.experience} years
+                {slide.description}
               </p>
             </div>
             )}
