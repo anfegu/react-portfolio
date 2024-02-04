@@ -2,11 +2,11 @@ import React from "react";
 
 //import stock
 import stock from  "../images/underconst.jpg";
-import stock1 from "../images/image2.jpg";
+/* import stock1 from "../images/image2.jpg";
 import stock2 from "../images/image3.jpg";
 import stock3 from "../images/image4.jpg";
 import stock4 from "../images/image5.jpg";
-import stock5 from "../images/image6.jpg";
+import stock5 from "../images/image6.jpg"; */
 
 class Portfolio extends React.Component {
   render() {
@@ -50,7 +50,7 @@ class Portfolio extends React.Component {
                     </div>
                   </div>
                 </a>
-                <a
+               {/*  <a
                   href={stock1}
                   data-lightbox="gallery-vmarine"
                   style={{ display: "none" }}
@@ -84,7 +84,7 @@ class Portfolio extends React.Component {
                   style={{ display: "none" }}
                 >
                   jsx-a11y/anchor-has-content warning
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-md-4">
@@ -112,7 +112,7 @@ class Portfolio extends React.Component {
                     </div>
                   </div>
                 </a>
-                <a
+               {/*  <a
                   href={stock1}
                   data-lightbox="gallery-aguadeluz"
                   style={{ display: "none" }}
@@ -146,7 +146,7 @@ class Portfolio extends React.Component {
                   style={{ display: "none" }}
                 >
                   jsx-a11y/anchor-has-content warning
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-md-4">
@@ -174,7 +174,7 @@ class Portfolio extends React.Component {
                     </div>
                   </div>
                 </a>
-                <a
+              {/*   <a
                   href={stock1}
                   data-lightbox="gallery-todo"
                   style={{ display: "none" }}
@@ -208,7 +208,7 @@ class Portfolio extends React.Component {
                   style={{ display: "none" }}
                 >
                   jsx-a11y/anchor-has-content warning
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-md-4">
@@ -235,7 +235,7 @@ class Portfolio extends React.Component {
                     </div>
                   </div>
                 </a>
-                <a
+                {/* <a
                   href={stock1}
                   data-lightbox="gallery-medlingos"
                   style={{ display: "none" }}
@@ -269,7 +269,7 @@ class Portfolio extends React.Component {
                   style={{ display: "none" }}
                 >
                   jsx-a11y/anchor-has-content warning
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-md-4">
@@ -294,7 +294,7 @@ class Portfolio extends React.Component {
                     </div>
                   </div>
                 </a>
-                <a
+              {/*   <a
                   href={stock1}
                   data-lightbox="gallery-smth"
                   style={{ display: "none" }}
@@ -328,7 +328,7 @@ class Portfolio extends React.Component {
                   style={{ display: "none" }}
                 >
                   jsx-a11y/anchor-has-content warning
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col-md-4">
@@ -355,7 +355,7 @@ class Portfolio extends React.Component {
                     </div>
                   </div>
                 </a>
-                <a
+               {/*  <a
                   href={stock1}
                   data-lightbox="gallery-mf"
                   style={{ display: "none" }}
@@ -389,7 +389,7 @@ class Portfolio extends React.Component {
                   style={{ display: "none" }}
                 >
                   jsx-a11y/anchor-has-content warning
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

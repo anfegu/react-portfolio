@@ -1,9 +1,8 @@
 import React from "react";
-import "./stars.scss";
 import Typed from "react-typed";
+import "./stars.scss";
 
-function Intro() {
- 
+const Intro = () => {
   return (
     <section id="home" className="intro route bg-image background">
       <div className="intro-content display-table">
@@ -22,7 +21,6 @@ function Intro() {
               <span className="text-slider-items"></span>
               <strong className="text-slider">
                 <Typed
-                  //ref={typedRef} // Use ref for potential control
                   strings={[
                     "Blockchain Proficient",
                     "Fullstack Developer",
@@ -41,11 +39,6 @@ function Intro() {
                 className="btn js-scroll px-4 intro-btn"
                 href="#contact"
                 role="button"
-                onClick={() => {
-                  document.querySelector(".navbar-collapse").classList.remove("show");
-                  document.querySelector(".navbar-toggler").classList.toggle("collapsed", true);
-                  }
-                }
               >
                 Contact To Work
               </a>

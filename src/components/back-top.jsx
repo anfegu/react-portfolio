@@ -31,7 +31,7 @@ const BackToTop = () => {
         document.querySelector(".navbar-toggler").classList.toggle("collapsed", true);
       }}
     >
-      <i className="fa fa-chevron-up"></i>
+      <i className="ion-chevron-up" style={{ fontSize: '36px' }}></i>
     </a>
   );
 };

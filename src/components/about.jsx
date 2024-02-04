@@ -1,7 +1,7 @@
-import React from "react";
-import * as data  from "../utils/data";
+import * as data from "../utils/data";
 import ExperienceRating from "./utils/xRating";
 import Slide from "./utils/slide";
+import meImage from "../images/me.jpeg";
 
 const About = () => {
   return (
@@ -14,50 +14,43 @@ const About = () => {
                 <div className="col-md-6">
                   <div className="about-me pt-md-0">
                     <div className="title-box-2">
-                      <h1 className="title-left">About Me</h1> 
+                      <h1 className="title-left">About Me</h1>
                     </div>
-                    <div className="float-md-right ml-md-2">
-                      <img
-                        src={require("../images/me.jpeg")}
-                        alt="Anfegu"
-                        className="intro-img"
-                        style={{ width: "100%", height: "auto" }}
-                      />
-                    </div> 
-                    <div>
-                      {data.aboutMeData.map((content) => (
-                        <p
-                          style={{ textAlign: "justify" }}
-                          className="lead"
-                          key={content.id}
-                        >
-                          {content.content}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  
-                  <div className="col-md-12" style={{ margin: "20px auto" }}>
-                    <Slide />
-                  </div>
-                  
-                  <div className="skill-mf">
-                    {data.skillsData.map((skill) => (
-                      <React.Fragment key={skill.id}>
-                        <span style={{fontSize: "1.1rem"}} >{skill.content}</span>{" "}
-                          <div>
-                            <ExperienceRating 
-                              yearsOfExperience={skill.years}
-                              level={skill.level}
-                            />
-                          </div>
-                      </React.Fragment>
+                    <img
+                      src={meImage}
+                      alt="Anfegu"
+                      className="intro-img img-about img-fluid"
+                    />
+                    {data.aboutMeData.map((content) => (
+                      <p
+                        style={{ textAlign: "justify" }}
+                        className="lead"
+                        key={content.id}
+                      >
+                        {content.content}
+                      </p>
                     ))}
                   </div>
                 </div>
-                
+                <div className="col-md-6">
+                  <div style={{ margin: "20px 0" }}>
+                    <Slide />
+                  </div>
+                  <div className="skill-mf">
+                    {data.skillsData.map((skill) => (
+                      <div key={skill.id}>
+                        <div style={{ display: "flex", justifyContent: "space-between", fontSize: "1rem"}}>
+                          <span style={{fontWeight: "bolder" }}>{skill.content}</span>
+                          <span style={{fontWeight: "light"}}> {skill.type}</span>
+                        </div>
+                        <ExperienceRating
+                          yearsOfExperience={skill.years}
+                          level={skill.level}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>

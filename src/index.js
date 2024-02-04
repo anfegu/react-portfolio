@@ -3,16 +3,14 @@ import ReactDOM from 'react-dom/client';
 
 //import css in order
 import './animate.css';
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './images/icons/css/ionicons.css';
-import './images/font-awesome/css/font-awesome.css';
-import 'lightbox2/dist/css/lightbox.min.css'
+//import 'lightbox2/dist/css/lightbox.min.css'
 import './style.css';
 
 //import js libraries
-import 'popper.js/dist/popper.min.js';
-import 'bootstrap/dist/js/bootstrap.min.js';
-import 'lightbox2/dist/js/lightbox.min.js';
+//import 'bootstrap/dist/js/bootstrap.min.js';
+//import 'lightbox2/dist/js/lightbox.min.js';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -24,12 +22,12 @@ import Portfolio from './components/portfolio.jsx';
 import Contact from './components/contact.jsx';
 import BackToTop from './components/back-top.jsx';
 import Preloader from './components/preloader';
-import { Toaster } from 'sonner';
+import { Toaster } from 'sonner'; //notifications
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.Fragment>
+    <React.StrictMode>
         <Navbar />
         <Intro />
         <About />
@@ -38,7 +36,7 @@ root.render(
         <BackToTop />
         <Preloader />
         <Toaster richColors position="bottom-center" expand={true}/>
-    </React.Fragment>
+    </React.StrictMode>
 );
 
 // If you want your app to work offline and load faster, you can change

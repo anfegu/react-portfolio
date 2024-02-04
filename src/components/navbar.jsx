@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Sparkles } from "./utils/sparkle";
+import Sparkles from "./utils/sparkle";
 import Boop from "./utils/boop";
 import logo1 from "../images/logo1.png";
 import logo2 from "../images/logo.png";
 
 const Navbar = () => {
   const [logo, setLogo] = useState(logo1);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navbarRef = useRef(null);
 
   const handleSmoothScroll = (e) => {
@@ -13,68 +14,58 @@ const Navbar = () => {
     const targetElement = document.getElementById(e.target.hash.slice(1));
     if (targetElement) {
       window.scrollTo({
-        top: targetElement.offsetTop - ( window.innerWidth < 768 ? 70 : 90),
+        top: targetElement.offsetTop - (window.innerWidth < 768 ? 70 : 90),
       });
       // eslint-disable-next-line no-restricted-globals
       history.replaceState({}, "", e.target.hash);
+      setMobileMenuOpen(false); // Close the mobile menu after clicking a link
     }
   };
 
   const handleToggleClick = () => {
-
+    
+    setMobileMenuOpen(!isMobileMenuOpen);
     const navbarElement = navbarRef.current;
 
     if (window.innerWidth < 768) {
       // Only toggle the menu if the screen width is less than 768 pixels
       navbarElement.classList.toggle("mobile-menu");
+      const isMobileMenu = navbarElement.classList.contains("mobile-menu");
+      const isReduced = isMobileMenu || window.pageYOffset > 50;
       
-      // Change the logo based on the mobile menu state
-      if (navbarElement.classList.contains("mobile-menu")) {
-      //if (isNavOpen) {
-        navbarElement.classList.add("navbar-reduce");
-        navbarElement.classList.remove("navbar-trans");
-        setLogo(logo2); // Use the mobile menu logo
-      } else {
-        // Change the logo based on the scroll position when the menu is closed
-        if (window.pageYOffset > 50) {
-          setLogo(logo2);
-        } else {
-          navbarElement.classList.add("navbar-trans");
-          navbarElement.classList.remove("navbar-reduce");
-          setLogo(logo1);
-        }
+      navbarElement.classList.toggle("navbar-reduce", isReduced);
+      navbarElement.classList.toggle("navbar-trans", !isMobileMenu && !isReduced);
+
+      setLogo(isReduced ? logo2 : logo1);
+      if (!isMobileMenu && isReduced) {
+        setMobileMenuOpen(!isMobileMenuOpen);
       }
-    } else if (!navbarElement.classList.contains("navbar-reduce")) {
+    } else {
       navbarElement.classList.add("navbar-reduce");
     }
   };
-  
-  const handleNavClick = () => {
-    navbarRef.current.querySelector(".navbar-collapse")
-      .classList.toggle("show");
-    document.querySelector(".navbar-toggler").classList.toggle("collapsed");
-  };
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const navbarElement = navbarRef.current;
-    
+      const isReduced = window.pageYOffset > 50;
+
       if (window.pageYOffset < 150) {
         document.querySelector(".nav-link[href='#home']").classList.add("active");
         document.querySelector(".nav-link[href='#about']").classList.remove("active");
+        // eslint-disable-next-line no-unused-expressions
+        navbarElement.classList.contains("mobile-menu") ? navbarElement.classList.remove("mobile-menu") : null;
       } else {
-       
         // Intersection Observer setup for section tracking
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
-              
               if (entry.isIntersecting) {
                 // Add logic to highlight corresponding navigation link
                 document.querySelectorAll(".nav-link").forEach((link) => {
                   link.classList.remove("active");
                   if (link.getAttribute("href") === `#${entry.target.id}`) {
-                    link.classList.add("active");       
+                    link.classList.add("active");
                   }
                 });
               }
@@ -84,72 +75,101 @@ const Navbar = () => {
         );
 
         // Observe each section
-        const sections = document.querySelectorAll("section");
-        sections.forEach((section) => {
+        document.querySelectorAll("section").forEach((section) => {
           observer.observe(section);
         });
       }
 
-      if (window.pageYOffset > 50) {
-        navbarElement.classList.add("navbar-reduce");
-        navbarElement.classList.remove("navbar-trans");
-        setLogo(logo2);
-      } else {
-        navbarElement.classList.add("navbar-trans");
-        navbarElement.classList.remove("navbar-reduce");
-        setLogo(logo1);
-      }
+      navbarElement.classList.toggle("navbar-reduce", isReduced);
+      navbarElement.classList.toggle("navbar-trans", !isReduced);
+      setLogo(isReduced ? logo2 : logo1);
+      setMobileMenuOpen(navbarElement.classList.contains(".navbar-collapse.show"));
     };
 
     window.addEventListener("scroll", handleScroll);
-    document.querySelector(".navbar-nav").addEventListener("click", handleNavClick);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      document.querySelector(".navbar-nav").removeEventListener("click", handleNavClick);
     };
-  }, []); 
-
+  }, []);
+  
   return (
-    <nav className="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav" ref={navbarRef}>
+    <nav
+      className="navbar navbar-b navbar-trans navbar-expand-lg fixed-top"
+      id="mainNav"
+      ref={navbarRef}
+    >
       <div className="container">
-        
         {logo === logo1 ? (
-          <Boop scale='1.8' rotation='1080' timing='5000' ><Sparkles>
-            <img src={logo} alt="logo" style={{ maxWidth: "100px" }} />
-          </Sparkles></Boop>
+          <Boop scale="1.7" rotation="1080" timing="5000">
+            <Sparkles>
+              <img src={logo} alt="logo"/>
+            </Sparkles>
+          </Boop>
         ) : (
-          <Boop scale='0' rotation='360' timing='10' ><a href="#page-top"><img src={logo} alt="logo" style={{ maxWidth: "100px" }} /></a></Boop>
+          <Boop scale="1.3" rotation="0" timing="1000">
+            <a href="#page-top">
+              <img src={logo} alt="logo"/>
+            </a>
+          </Boop>
         )}
-        
-        <button
-          className="navbar-toggler collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarDefault"
+
+        <div
+          className={`navbar-toggler collapsed border-0`}
           aria-controls="navbarDefault"
-          aria-expanded="false"
+          aria-expanded={isMobileMenuOpen ? "true" : "false"}
           aria-label="Toggle navigation"
           onClick={handleToggleClick}
         >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <div className="navbar-collapse collapse justify-content-end" id="navbarDefault">
+           {isMobileMenuOpen ? (
+              <i className="ion-close-round" 
+              style={
+                {fontSize: "40px", 
+                 color: navbarRef.current?.classList.contains("navbar-trans") ? '#eee' : '#1B1B1B'
+                }
+              }
+              />
+            ) : (
+              <i className="ion-navicon-round" 
+                style={
+                  {fontSize: "50px", 
+                   color: navbarRef.current?.classList.contains("navbar-reduce") ? '#1B1B1B' : '#eee'
+                  }
+                }
+              />
+            )}
+        </div>
+
+        <div
+          className={`navbar-collapse collapse justify-content-end ${
+            isMobileMenuOpen ? "show" : ""
+          }`}
+          id="navbarDefault"
+        >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link js-scroll active" href="#home" onClick={handleSmoothScroll}>
+              <a
+                className="nav-link js-scroll active"
+                href="#home"
+              >
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link js-scroll" href="#about" onClick={handleSmoothScroll}>
+              <a
+                className="nav-link js-scroll"
+                href="#about"
+                onClick={handleSmoothScroll}
+              >
                 About
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link js-scroll" href="#work" onClick={handleSmoothScroll}>
+              <a
+                className="nav-link js-scroll"
+                href="#work"
+                onClick={handleSmoothScroll}
+              >
                 Work
               </a>
             </li>

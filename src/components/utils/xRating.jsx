@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles } from './sparkle';
+import Sparkles from './sparkle';
 import * as data from '../../utils/data';
 import Typed from 'react-typed';
 
@@ -11,18 +11,11 @@ const RatingLevel = ({ title, value, isHovered, years }) => {
       <div className="overlay-bar" style={{ width: `${textWidth}%` }}></div>
       {isHovered && (
         <Sparkles>
-          <div className="rating-level-title"> 
-            <Typed     
-                strings={[
-                  formattedString
-                ]}
-                typeSpeed={25}    
-                style={{alignItems: "baseline", display: "flex", justifyContent: "center"}}
-            />
-           </div>
-         {/*  <div className="rating-level-title" dangerouslySetInnerHTML={{ __html: formattedString }}>
-          {`${title} ${'\u00A0'.repeat(Math.round(value) - 43)} Exp: <b>${years}</b>  years`}
-         </div> */}
+          <Typed     
+              strings={[formattedString]}
+              typeSpeed={10}
+              className='rating-type'    
+          />
         </Sparkles>
       )}
     </div>
@@ -37,21 +30,21 @@ const calculateSkillValues = (yearsOfExperience, level) =>
 const ExperienceRating = ({ yearsOfExperience, level }) => {
   const [isHovered, setIsHovered] = useState(false);
   const percentageValue = calculateSkillValues(yearsOfExperience, level);
+  const getRatingTitle = () => {
+    if (percentageValue <= 20) return 'Novice';
+    if (percentageValue <= 40) return 'Beginner';
+    if (percentageValue <= 60) return 'Intermediate';
+    if (percentageValue <= 80) return 'Advanced';
+    return 'Expert';
+  };
+
   return (
-    <div onMouseEnter={() => setIsHovered(true)}
-    onMouseLeave={() => setIsHovered(false)}>
+    <div 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <RatingLevel
-        title={
-          percentageValue <= 20
-            ? 'Novice'
-            : percentageValue <= 40
-            ? 'Beginner'
-            : percentageValue <= 60
-            ? 'Intermediate'
-            : percentageValue <= 80
-            ? 'Advanced'
-            : 'Expert'
-        }
+        title={getRatingTitle()}
         value={percentageValue}
         isHovered={isHovered}
         years={yearsOfExperience}

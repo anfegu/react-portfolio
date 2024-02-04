@@ -1,132 +1,96 @@
-import React, { useState, useEffect } from 'react';
-import * as data  from "../../utils/data";
+import React, { useState, useEffect, useRef } from 'react';
+import * as data from "../../utils/data";
 
 function Slide() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = [
-    { title: 'TECH SKILLS',
-      svgTitle: data.techIcons["Title"],
-    }
-  ];
+  const slides = data.skillsData
+    .filter(skill => data.techIcons[skill.content])
+    .map(skill => ({
+      title: skill.content,
+      svg: data.techIcons[skill.content],
+      description: skill.description,
+    }));
 
-  for (let i = 0; i < data.skillsData.length; i++) {
-    if (!data.techIcons[data.skillsData[i].content]) {
-      continue;
-    }
-    slides.push({
-        title: data.skillsData[i].content,
-        svg: data.techIcons[data.skillsData[i].content],
-        description: data.skillsData[i].description
-    });
-  }
+  const intervalRef = useRef(null);
 
-  slides.push(slides[0]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const startInterval = () => {
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide(prevSlide => (prevSlide + 1) % slides.length);
+    }, 5000);
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 7000);
+    startInterval();
 
-    return () => clearInterval(interval);
-  }, [slides.length]);
+    return () => clearInterval(intervalRef.current);
+  }, [slides.length, startInterval]);
 
-  const handlePreviousClick = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
+  const handleArrowClick = (direction) => {
+    setCurrentSlide(prevSlide => (prevSlide + direction + slides.length) % slides.length);
   };
 
-  const handleNextClick = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-  };
-
-  const slideContainerStyle = {
-    position: 'relative',
-    width: '100%',
-    overflow: 'hidden',
+  const handleHover = (isHovering) => {
+    isHovering ? clearInterval(intervalRef.current) : startInterval();
   };
 
   const cardContainerStyle = {
     display: 'flex',
-    transition: 'transform 0.5s ease-in-out',
-    transform: `translateX(-${currentSlide * 100}%)`,
-  };
-
-  const cardStyle = {
-    flex: '0 0 100%',
-    minWidth: '100%',
-    border: 'none',
-    boxSizing: 'border-box',
-    alignItems: 'center',
-   
+    transition: 'transform 0.5s ease-in-out'
   };
 
   const arrowButtonStyle = {
-    position: 'absolute',
-    top: '50%',
-    transform: 'translateY(-50%)',
-    background: 'none',
-    border: 'none',
-    fontSize: '1.5em',
-    cursor: 'pointer',
-    color: '#068', // Adjust color as needed
-  };
-
-  const leftArrowStyle = {
-    ...arrowButtonStyle,
-    left: '10px',
-  };
-
-  const rightArrowStyle = {
-    ...arrowButtonStyle,
-    right: '10px',
+    ...{
+      position: 'absolute',
+      top: '44%',
+      fontSize: '1.5em',
+      cursor: 'pointer',
+      color: '#068',
+    },
   };
 
   return (
-    <div className="container mx-auto">
-    <div style={leftArrowStyle} onClick={handlePreviousClick}>
-      &lt;
-    </div>
-    <div style={slideContainerStyle}>
-      <div style={cardContainerStyle}>
-        {slides.map((slide, index) => (
-          <div key={index} style={cardStyle} className="card">
-            {slide.svgTitle && (
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <div style={{ marginLeft: '20px' }}>
-                    {slide.svgTitle}
-                </div>
-                <div className="card-body">
-                  <h1 className="card-title">{slide.title}</h1>
-                </div>
-              </div>
-            )}
-            {slide.svg && (
-              <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
-                <div style={{ marginRight: '20px' }}>
-                    {slide.svg}
-                </div>
-                <div>
+    <div className="container" style={{position: 'relative'}}>
+      <div style={{ ...arrowButtonStyle, left: 0 }} onClick={() => handleArrowClick(-1)}>
+        &lt;
+      </div>
+      <div 
+        className="slideContainerStyle" 
+        onMouseEnter={() => handleHover(true)} 
+        onMouseLeave={() => handleHover(false)}
+      >
+        <div style={{ ...cardContainerStyle, transform: `translateX(-${currentSlide * 100}%)` }}>
+          {slides.map((slide, index) => (
+            <div className="card cardStyle" key={index}>
+              {slide.svg && (
+                <div className='slideSvgStyle'>
+                  <div>
                     <h2 className="card-title" style={{ marginBottom: 0 }}>
-                    {slide.title}
+                      {slide.title}
                     </h2>
+                  </div>
+                  <div style={{ marginLeft: '10px' }}>
+                    {slide.svg}
+                  </div>
+                  
                 </div>
+              )}
+
+              {slide.description && (
+                <div className='slideDescStyle'>
+                  <p className="card-text">
+                    {slide.description}
+                  </p>
+                </div>
+              )}
             </div>
-          )}
-          
-          {slide.description && (
-            <div style={{fontSize: '0.9em', fontWeight:'bolder', textAlign: 'center'}}>
-              <p className="card-text">
-                {slide.description}
-              </p>
-            </div>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+      <div style={{ ...arrowButtonStyle, right: 0 }} onClick={() => handleArrowClick(1)}>
+        &gt;
       </div>
     </div>
-    <div style={rightArrowStyle} onClick={handleNextClick}>
-      &gt;
-    </div>
-  </div>
   );
 }
 

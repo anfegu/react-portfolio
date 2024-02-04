@@ -66,17 +66,6 @@ const Sparkle = ({ size, color, style }) => {
   );
 };
 
-function SparkleLink(props){
-  const isOver = props.isOver;
-  const item = props.item;
-  const url = props.url;
-   if (isOver) {
-    return <Sparkles><a className='nav-link js-scroll active' href={url} > {item} </a></Sparkles>
-   } else {
-    return <a className='nav-link js-scroll' href={url} > {item} </a>
-   }
-}
-
 const comeInOut = keyframes`
   0% {
     transform: scale(0);
@@ -118,4 +107,4 @@ const ChildWrapper = styled.strong`
   z-index: 1;
   font-weight: bold;
 `;
-export {Sparkles, SparkleLink};
+export default Sparkles;

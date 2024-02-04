@@ -542,7 +542,11 @@ NAVBAR
   background-color: #068;
 }
 
-/* Hamburger Navbar */
+.navbar-b img {
+  max-width: 100px;
+}
+
+/* Hamburguer Navbar */
 
 .navbar-toggler {
   position: relative;
@@ -596,6 +600,7 @@ NAVBAR
   transform: rotate(-135deg);
   opacity: 0.9;
 }
+
 
 /*
 INTRO
@@ -699,6 +704,13 @@ ABOUT
 .skill-mf .progress .progress-bar {
   height: .7rem;
   background-color: #04aec1;
+}
+
+.img-about {
+  width: 100%;
+  height: auto;
+  float: right;
+  margin: 0 0 20px 20px;
 }
 
 /* remember save this for a div you want to spread over dynamically */
@@ -1003,12 +1015,10 @@ BUTTON
   background: #cde1f8;
 }
 
-.rating-level-title {
-  font-size: 16px;
-  font-weight: bolder;
-  color: #fff;
+.rating-type {
+  display: flex;
+  justify-content: center;
 }
-
 .overlay-bar {
   position: absolute;
   top: 0;
@@ -1021,4 +1031,33 @@ BUTTON
 
 .rating-level.hovered .overlay-bar {
   width: 100%;
+}
+
+/* slide component */
+
+.slideContainerStyle {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cardStyle {
+  flex: 0 0 100%;
+  min-width: 100%;
+  border: none;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.slideSvgStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.slideDescStyle {
+  font-size: 0.9em;
+  text-align: center;
+  font-weight: bolder;
 }
