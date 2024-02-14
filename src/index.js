@@ -5,12 +5,10 @@ import ReactDOM from 'react-dom/client';
 import './animate.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './images/icons/css/ionicons.css';
-//import 'lightbox2/dist/css/lightbox.min.css'
 import './style.css';
 
 //import js libraries
 //import 'bootstrap/dist/js/bootstrap.min.js';
-//import 'lightbox2/dist/js/lightbox.min.js';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -23,7 +21,10 @@ import Contact from './components/contact.jsx';
 import BackToTop from './components/back-top.jsx';
 import Preloader from './components/preloader';
 import { Toaster } from 'sonner'; //notifications
+import Modal from 'react-modal';
 
+// Set the root element for accessibility outside of StrictMode
+Modal.setAppElement("#root");
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

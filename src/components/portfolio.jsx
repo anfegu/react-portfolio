@@ -1,402 +1,135 @@
-import React from "react";
+import React, { useState } from "react";
+import Modal from "react-modal";
+import * as data from "../utils/data";
+import FlippableCard from "./FlippableCard.tsx";
+import {Backg} from "./utils/background.tsx"; //enviar parametricamente por cada NO proyecto tratar de atar a colores random
 
-//import stock
-import stock from  "../images/underconst.jpg";
-/* import stock1 from "../images/image2.jpg";
-import stock2 from "../images/image3.jpg";
-import stock3 from "../images/image4.jpg";
-import stock4 from "../images/image5.jpg";
-import stock5 from "../images/image6.jpg"; */
+const Portfolio = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  
 
-class Portfolio extends React.Component {
-  render() {
-    return (
-      <section id="work" className="portfolio-mf sect-pt4 route">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12">
-              <div className="title-box text-center">
-                <h1 className="title-a">Portfolio</h1>
-                <p className="subtitle-a">
-                  Here are some practical examples of my work. 
-                  No frills, just a peek into some projects that have shaped my coding skills.
-                </p>
-                <div className="line-mf"></div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-4">
-              <div className="work-box">
-                <a href={stock} data-lightbox="gallery-vmarine">
-                  <div className="work-img">
-                    <img src={stock} alt="" className="img-fluid" />
-                  </div>
-                  <div className="work-content">
-                    <div className="row">
-                      <div className="col-sm-8">
-                        <h2 className="w-title">Project #1</h2>
-                        <div className="w-more">
-                          <span className="w-ctegory">
-                            HTML5 CSS3 Bootstrap ReactJS
-                          </span>
-                        </div>
-                      </div>
-                      <div className="col-sm-4">
-                        <div className="w-like">
-                          <span className="ion-ios-plus-outline"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-               {/*  <a
-                  href={stock1}
-                  data-lightbox="gallery-vmarine"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock2}
-                  data-lightbox="gallery-vmarine"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock3}
-                  data-lightbox="gallery-vmarine"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock4}
-                  data-lightbox="gallery-vmarine"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock5}
-                  data-lightbox="gallery-vmarine"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a> */}
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="work-box">
-                <a href={stock} data-lightbox="gallery-aguadeluz">
-                  <div className="work-img">
-                    <img src={stock} alt="" className="img-fluid" />
-                  </div>
-                  <div className="work-content">
-                    <div className="row">
-                      <div className="col-sm-8">
-                        <h2 className="w-title">Project #2</h2>
-                        <div className="w-more">
-                          <span className="w-ctegory">
-                            HTML5 CSS3 Bootstrap Webpack SmoothScrolling
-                            VanillaJS
-                          </span>{" "}
-                        </div>
-                      </div>
-                      <div className="col-sm-4">
-                        <div className="w-like">
-                          <span className="ion-ios-plus-outline"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-               {/*  <a
-                  href={stock1}
-                  data-lightbox="gallery-aguadeluz"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock2}
-                  data-lightbox="gallery-aguadeluz"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock3}
-                  data-lightbox="gallery-aguadeluz"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock4}
-                  data-lightbox="gallery-aguadeluz"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock5}
-                  data-lightbox="gallery-aguadeluz"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a> */}
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="work-box">
-                <a href={stock} data-lightbox="gallery-todo">
-                  <div className="work-img">
-                    <img src={stock} alt="" className="img-fluid" />
-                  </div>
-                  <div className="work-content">
-                    <div className="row">
-                      <div className="col-sm-8">
-                        <h2 className="w-title">Project #3</h2>
-                        <div className="w-more">
-                          <span className="w-ctegory">
-                            HTML5 CSS3 Bootstrap Webpack ReactJS
-                          </span>
-                          {/*} / <span className="w-date">18 Sep. 2018</span>*/}
-                        </div>
-                      </div>
-                      <div className="col-sm-4">
-                        <div className="w-like">
-                          <span className="ion-ios-plus-outline"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              {/*   <a
-                  href={stock1}
-                  data-lightbox="gallery-todo"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock2}
-                  data-lightbox="gallery-todo"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock3}
-                  data-lightbox="gallery-todo"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock4}
-                  data-lightbox="gallery-todo"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock5}
-                  data-lightbox="gallery-todo"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a> */}
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="work-box">
-                <a href={stock} data-lightbox="gallery-medlingos">
-                  <div className="work-img">
-                    <img src={stock} alt="" className="img-fluid" />
-                  </div>
-                  <div className="work-content">
-                    <div className="row">
-                      <div className="col-sm-8">
-                        <h2 className="w-title">Project #4</h2>
-                        <div className="w-more">
-                          <span className="w-ctegory">
-                            Bootstrap ReactJS GoogleAPI
-                          </span>
-                        </div>
-                      </div>
-                      <div className="col-sm-4">
-                        <div className="w-like">
-                          <span className="ion-ios-plus-outline"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                {/* <a
-                  href={stock1}
-                  data-lightbox="gallery-medlingos"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock2}
-                  data-lightbox="gallery-medlingos"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock3}
-                  data-lightbox="gallery-medlingos"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock4}
-                  data-lightbox="gallery-medlingos"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock5}
-                  data-lightbox="gallery-medlingos"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a> */}
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="work-box">
-                <a href={stock} data-lightbox="gallery-smth">
-                  <div className="work-img">
-                    <img src={stock} alt="" className="img-fluid" />
-                  </div>
-                  <div className="work-content">
-                    <div className="row">
-                      <div className="col-sm-8">
-                        <h2 className="w-title">Project #5</h2>
-                        <div className="w-more">
-                          <span className="w-ctegory">MERN</span>
-                        </div>
-                      </div>
-                      <div className="col-sm-4">
-                        <div className="w-like">
-                          <span className="ion-ios-plus-outline"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              {/*   <a
-                  href={stock1}
-                  data-lightbox="gallery-smth"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock2}
-                  data-lightbox="gallery-smth"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock3}
-                  data-lightbox="gallery-smth"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock4}
-                  data-lightbox="gallery-smth"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock5}
-                  data-lightbox="gallery-smth"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a> */}
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="work-box">
-                <a href={stock} data-lightbox="gallery-mf">
-                  <div className="work-img">
-                    <img src={stock} alt="" className="img-fluid" />
-                  </div>
-                  <div className="work-content">
-                    <div className="row">
-                      <div className="col-sm-8">
-                        <h2 className="w-title">Project #6</h2>
-                        <div className="w-more">
-                          <span className="w-ctegory">
-                            HTML5 CSS3 Bootstrap MERN
-                          </span>
-                        </div>
-                      </div>
-                      <div className="col-sm-4">
-                        <div className="w-like">
-                          <span className="ion-ios-plus-outline"></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-               {/*  <a
-                  href={stock1}
-                  data-lightbox="gallery-mf"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock2}
-                  data-lightbox="gallery-mf"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock3}
-                  data-lightbox="gallery-mf"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock4}
-                  data-lightbox="gallery-mf"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a>
-                <a
-                  href={stock5}
-                  data-lightbox="gallery-mf"
-                  style={{ display: "none" }}
-                >
-                  jsx-a11y/anchor-has-content warning
-                </a> */}
-              </div>
+  const openModal = (category) => {
+    setSelectedCategory(category);
+    setModalIsOpen(true);
+    document.body.style.overflow = 'hidden';
+    if (window.innerWidth > 768) {
+      window.scrollTo({
+        top: document.getElementById('work').offsetTop - 90,
+      })
+    }
+  };
+
+  const closeModal = () => {
+    setSelectedCategory(null);
+    setModalIsOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+
+
+  return (
+    <section id="work" className="portfolio-mf sect-pt4 route">
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12">
+            <div className="title-box text-center">
+              <h1 className="title-a">Portfolio</h1>
+              <p className="subtitle-a">
+                Here are some practical examples of my work. No frills, just a peek into some projects that have shaped my coding skills.
+              </p>
+              <div className="line-mf"></div>
             </div>
           </div>
         </div>
-      </section>
-    );
-  }
-}
+        <div className="row" style={{ justifyContent: 'center' }}>
+          {data.categories.map((category) => (
+            <div className="col-md-4" key={category.id}>
+              <div className="work-box">
+                <button style={{border: 'none'}} onClick={() => openModal(category)}>
+                  <div className="work-img">
+                    <div dangerouslySetInnerHTML={{__html: category[`svg${category.id}`]}}/>
+                  </div>
+                  <div className="work-content">
+                    <div className="row">
+                      <div className="col-sm-12">
+                        <h2 className="w-title">{category.title}</h2>
+                        <div className="w-more">
+                          <span className="w-ctegory">{category.type}</span>
+                          <p className="w-technologies">{category.technologies}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Modal */}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={{
+          content: {
+            top: '55%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            transform: 'translate(-50%, -50%)',
+            width: '50vh', 
+            height: '30vh',
+            overflow: 'visible', // Enable scrolling if content overflows
+            position: 'fixed',
+            backgroundColor: 'transparent',
+            border: 'none',
+          },
+          overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            zIndex: 1000,
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)',
+          },
+        }}
+      >
+         <div>
+          {selectedCategory && (
+            selectedCategory.projects.map((project, index) => (
+              <FlippableCard
+                key={index}
+                xOffset={index % 2 === 0 ? -0.34 : 0.34}
+                yOffset={index < 2 ? -0.26 : 0.29}
+                category={selectedCategory}
+                cardNo={index}
+              >
+                {project.srcScreen ? (
+                  <video autoPlay loop muted controls
+                    style={{ 
+                      overflow: 'visible', 
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      width: 'auto',
+                      height: 'auto',
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                    }}
+                  >
+                    <source type="video/webm" src={project.srcScreen} />
+                  </video>
+                ) : project.component ? (
+                  <project.component />
+                ) : (
+                  <Backg />
+                )}
+              </FlippableCard>
+            ))
+          )}
+        </div>
+      </Modal>
+    </section>
+  );
+};
 
 export default Portfolio;
