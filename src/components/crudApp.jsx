@@ -4,6 +4,7 @@ function CrudApp() {
   const [data, setData] = useState([]);
   const [newItem, setNewItem] = useState("");
   const [insertCount, setInsertCount] = useState(0);
+  const maxLength = window.innerWidth <= 768 ? 12 : 44;
 
   // Function to create a new item
   const handleCreate = () => {
@@ -31,8 +32,10 @@ function CrudApp() {
       // User canceled the update
       return;
     }
+    // Truncate the newItem if it exceeds maxLength
+    const truncatedItem = newItem.slice(0, maxLength);
     const updatedData = [...data];
-    updatedData[index] = newItem;
+    updatedData[index] = truncatedItem.toLowerCase().trim();
     setData(updatedData);
   };
 
@@ -47,7 +50,7 @@ function CrudApp() {
     <div className="crud-app">
       <p className="mb-3 text-center description">This is a CRUD application to simulate managing a list of items.</p>
       <div className="container">
-        <div className="row border border-secondary shadow rounded p-3">
+        <div className="row border shadow rounded p-2">
           <div className="col-md-12 mb-3">
             <ul className="list-group border bg-light rounded shadow-sm">
               {data.map((item, index) => (
@@ -82,7 +85,8 @@ function CrudApp() {
                   id="newItem"
                   value={newItem}
                   placeholder="Enter a new item"
-                  onChange={(e) => setNewItem(e.target.value)}
+                  maxLength={maxLength}
+                  onChange={(e) => setNewItem(e.target.value.toLowerCase().trim())}
                 />
               </div>
               <div className="d-grid gap-2">

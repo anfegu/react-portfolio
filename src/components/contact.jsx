@@ -194,11 +194,10 @@ const Contact = () => {
                       <h1 className="title-left">Get in Touch</h1>
                     </div>
                     <div className="more-info">
-                      <p style={{ textAlign: "justify" }} className="lead">
+                      <p style={{ textAlign: window.innerWidth > 768 ? "justify" : "center" }} className="lead">
                       Feel free to reach out for project discussions, collaboration 
                       opportunities, or any inquiries related to our potential partnership. 
-                      Completing the form and sending is all it takes. Looking forward to 
-                      connecting with you! For more details, explore my links below.
+                      <br/>Looking forward to connecting with you. For more details, explore my links below.
                       </p>
                     </div>
                     <div className="socials text-center d-sm-flex">
