@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import * as data from "../../utils/data";
+import { skillsData, techIcons } from '../../../services';
 
 function Slide() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slides = data.skillsData
-    .filter(skill => data.techIcons[skill.content])
+  const slides = skillsData
+    .filter(skill => techIcons[skill.content])
     .map(skill => ({
       title: skill.content,
-      svg: data.techIcons[skill.content],
+      svg: techIcons[skill.content],
       description: skill.description,
     }));
 

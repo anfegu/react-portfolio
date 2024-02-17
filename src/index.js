@@ -2,10 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 //import css in order
-import './animate.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './images/icons/css/ionicons.css';
-import './style.css';
+import './assets/icons/css/ionicons.css';
+import './styles/main.css';
 
 //import js libraries
 //import 'bootstrap/dist/js/bootstrap.min.js';
@@ -13,13 +12,9 @@ import './style.css';
 import * as serviceWorker from './serviceWorker';
 
 //import components
-import Navbar from './components/navbar.jsx';
-import Intro from './components/intro.jsx';
-import About from './components/about.jsx';
-import Portfolio from './components/portfolio.jsx';
-import Contact from './components/contact.jsx';
-import BackToTop from './components/back-top.jsx';
-import Preloader from './components/preloader';
+import {Navbar, BackToTop} from './components/layout';
+import {Intro, About, Contact, Portfolio } from './components/pages';
+import Preloader from './components/common/Preloader';
 import { Toaster } from 'sonner'; //notifications
 import Modal from 'react-modal';
 

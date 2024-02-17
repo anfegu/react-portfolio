@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react';
 
-const BackToTop = () => {
+export const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -36,4 +36,3 @@ const BackToTop = () => {
   );
 };
 
-export default BackToTop;

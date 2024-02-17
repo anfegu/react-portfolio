@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import Sparkles from './sparkle';
-import * as data from '../../utils/data';
+//components
 import Typed from 'react-typed';
+import Sparkles from '../../common/Sparkle';
+//services
+import {getLevelWeight, getExperienceWeight, getCareerRating} from '../../../services';
 
 const RatingLevel = ({ title, value, isHovered, years }) => {
   const formattedString = `${title} - Experience: <h5> ~&nbsp;${years} years </h5>`;
@@ -23,9 +25,9 @@ const RatingLevel = ({ title, value, isHovered, years }) => {
 };
 
 const calculateSkillValues = (yearsOfExperience, level) => 
-  (data?.getLevelWeight[level] + 
-  data?.getExperienceWeight(yearsOfExperience) +
-  data?.getCareerRating()) / 3;
+  (getLevelWeight[level] + 
+  getExperienceWeight(yearsOfExperience) +
+  getCareerRating()) / 3;
 
 const ExperienceRating = ({ yearsOfExperience, level }) => {
   const [isHovered, setIsHovered] = useState(false);

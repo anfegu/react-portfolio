@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import * as data from "../utils/data";
-import ExperienceRating from "./utils/xRating";
-import Slide from "./utils/slide";
-import meImage from "../images/me.jpeg";
+//components
+import ExperienceRating from "./Rating";
+import Slide from "./Slide";
+//assets
+import meImage from "../../../assets/images/me.jpeg";
+//services
+import {aboutMeData, skillsData} from '../../../services'
 
-const About = () => {
+export const About = () => {
   const [expandedState, setExpandedState] = useState([]);
   const isMobile = window.innerWidth <= 768;
 
@@ -38,7 +41,7 @@ const About = () => {
                       alt="Anfegu"
                       className="intro-img img-about img-fluid"
                     />
-                    {data.aboutMeData.map((content, index) => (
+                    {aboutMeData.map((content, index) => (
                       <p
                         style={{ textAlign: isMobile ? "center" : "justify" }}
                         className="lead"
@@ -54,8 +57,6 @@ const About = () => {
                                 color: "#089",
                                 fontSize: "1.8rem",
                                 verticalAlign: "middle",
-                                
-                            
                               }}
                               onClick={() => toggleExpansion(index)}
                             >
@@ -74,7 +75,7 @@ const About = () => {
                     <Slide />
                   </div>
                   <div className="skill-mf">
-                    {data.skillsData.map((skill) => (
+                    {skillsData.map((skill) => (
                       <div key={skill.id}>
                         <div
                           style={{
@@ -108,4 +109,3 @@ const About = () => {
   );
 };
 
-export default About;

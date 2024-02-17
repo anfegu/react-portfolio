@@ -18,8 +18,7 @@
     "sass": "^1.50.0",
     "sonner": "^1.4.0",
     "styled-components": "^6.1.8",
-    "typed.js": "^2.0.10",
-    "validator": "^13.11.0"
+    "typed.js": "^2.0.10"
   },
   "scripts": {
     "start": "react-scripts start",

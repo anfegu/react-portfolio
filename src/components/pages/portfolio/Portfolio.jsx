@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import * as data from "../utils/data";
+//components
 import FlippableCard from "./FlippableCard.tsx";
-import {Backg} from "./utils/background.tsx"; //enviar parametricamente por cada NO proyecto tratar de atar a colores random
+import {Backg} from "./Background.tsx"; //enviar paramétricamente por cada NO proyecto tratar de atar a colores random
+//services
+import { categories } from "../../../services";
 
-const Portfolio = () => {
+export const Portfolio = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
   
-
   const openModal = (category) => {
     setSelectedCategory(category);
     setModalIsOpen(true);
@@ -26,7 +27,6 @@ const Portfolio = () => {
     document.body.style.overflow = 'auto';
   };
 
-
   return (
     <section id="work" className="portfolio-mf sect-pt4 route">
       <div className="container">
@@ -35,14 +35,14 @@ const Portfolio = () => {
             <div className="title-box text-center">
               <h1 className="title-a">Portfolio</h1>
               <p className="subtitle-a">
-                Here are some practical examples of my work. No frills, just a peek into some projects that have shaped my coding skills.
+                Here are some practical examples of my work. No frills, just a peek into some projects, functional simulators, work history, and student certificates that have shaped my tech skills.
               </p>
               <div className="line-mf"></div>
             </div>
           </div>
         </div>
         <div className="row" style={{ justifyContent: 'center' }}>
-          {data.categories.map((category) => (
+          {categories.map((category) => (
             <div className="col-md-4" key={category.id}>
               <div className="work-box">
                 <button style={{border: 'none'}} onClick={() => openModal(category)}>
@@ -131,5 +131,3 @@ const Portfolio = () => {
     </section>
   );
 };
-
-export default Portfolio;

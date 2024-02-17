@@ -1,8 +1,8 @@
 import React from "react";
 import Typed from "react-typed";
-import "./stars.scss";
+import "../../../styles/stars.scss";
 
-const Intro = () => {
+export const Intro = () => {
   return (
     <section id="home" className="intro route bg-image background">
       <div className="intro-content display-table">
@@ -49,5 +49,3 @@ const Intro = () => {
     </section>
   );
 }
-
-export default Intro;

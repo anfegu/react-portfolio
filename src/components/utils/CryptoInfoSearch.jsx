@@ -25,7 +25,7 @@ const CryptoInfoSearch = () => {
   useEffect(() => {
     const fetchCryptoGlobalData = async () => {
       try {
-        const cachedGlobalData = localStorage.getItem('cryptoGlobalData');
+        const cachedGlobalData = sessionStorage.getItem('cryptoGlobalData');
         if (cachedGlobalData) {
           setCryptoData(JSON.parse(cachedGlobalData));
         } else {
@@ -35,7 +35,7 @@ const CryptoInfoSearch = () => {
           }
           const data = await response.json();
           setCryptoData(data.data);
-          localStorage.setItem('cryptoGlobalData', JSON.stringify(data.data));
+          sessionStorage.setItem('cryptoGlobalData', JSON.stringify(data.data));
         }
       } catch (error) {
         setError(error.message);
@@ -96,7 +96,7 @@ const CryptoInfoSearch = () => {
     setError(null);
 
     try {
-      const cachedData = localStorage.getItem(selectedId);
+      const cachedData = sessionStorage.getItem(selectedId);
       if (cachedData) {
         setCurrentPrice(JSON.parse(cachedData).usd);
       } else {
@@ -108,7 +108,7 @@ const CryptoInfoSearch = () => {
         }
         const data = await response.json();
         setCurrentPrice(data[selectedId]?.usd);
-        localStorage.setItem(selectedId, JSON.stringify(data[selectedId]));
+        sessionStorage.setItem(selectedId, JSON.stringify(data[selectedId]));
       }
     } catch (error) {
       setError(error.message);

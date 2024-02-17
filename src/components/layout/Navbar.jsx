@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import Sparkles from "./utils/sparkle";
-import Boop from "./utils/boop";
-import logo1 from "../images/logo1.png";
-import logo2 from "../images/logo.png";
+import Sparkles from "../common/Sparkle";
+import Boop from "../common/Boop";
+import logo1 from "../../assets/images/logo1.png";
+import logo2 from "../../assets/images/logo.png";
 
-const Navbar = () => {
+export const Navbar = () => {
   const [logo, setLogo] = useState(logo1);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navbarRef = useRef(null);
@@ -185,4 +185,3 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
