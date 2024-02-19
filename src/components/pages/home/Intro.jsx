@@ -14,7 +14,7 @@ export const Intro = () => {
               </span>
             </h1>
             <br />
-            <span className="sign">
+            <span className="sign" translate="no">
               An<span className="fast-flicker">f</span>eg<span className="flicker">u</span>
             </span>
             <p className="intro-subtitle">

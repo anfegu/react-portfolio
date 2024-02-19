@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 //components
 import ExperienceRating from "./Rating";
 import Slide from "./Slide";
@@ -9,23 +9,46 @@ import {aboutMeData, skillsData} from '../../../services'
 
 export const About = () => {
   const [expandedState, setExpandedState] = useState([]);
-  const isMobile = window.innerWidth <= 768;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); 
+  const aboutRef = useRef(null); // Reference to the about section
 
-  // Function to toggle expansion for a specific paragraph
+  // Function to toggle expansion for a specific paragraph (english)
   const toggleExpansion = (index) => {
     const newExpandedState = [...expandedState];
     newExpandedState[index] = !newExpandedState[index];
     setExpandedState(newExpandedState);
   };
 
-  // Truncate the content if it exceeds the maximum length
+  // Truncate the content if it exceeds the maximum length (english)
   const truncateContent = (content) => {
-    const maxLength = 30; // Adjust the maximum length as needed
+    const maxLength = 30; // Adjust the maximum length as needed  
     return content.length > maxLength ? content.slice(0, maxLength) + "..." : content;
   };
 
+  // Function to handle window resize % language change
+  useEffect(() => {
+    const handleResizeAndLang = () => {
+      document.documentElement.lang === 'en' ? setIsMobile(window.innerWidth <= 768) : setIsMobile(false);
+    };
+
+    handleResizeAndLang();
+
+    const langChangeObserver = new MutationObserver(handleResizeAndLang);
+    langChangeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang'],
+    });
+
+    window.addEventListener("resize", handleResizeAndLang);
+
+    return () => {
+      window.removeEventListener("resize", handleResizeAndLang);
+      langChangeObserver.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="about" className="about-mf sect-pt4 route">
+    <section id="about" className="about-mf sect-pt4 route" ref={aboutRef}>
       <div className="container">
         <div className="row">
           <div className="col-sm-12">
@@ -46,26 +69,19 @@ export const About = () => {
                         style={{ textAlign: isMobile ? "center" : "justify" }}
                         className="lead"
                         key={index}
+                        
                       >
-                        {isMobile && (
+                         {(isMobile && content.content.length > 30)  ? (
                           <>
-                            {expandedState[index] || content.content.length <= 30
-                              ? content.content
-                              : truncateContent(content.content)}
-                            <span
-                              style={{ 
-                                color: "#089",
-                                fontSize: "1.8rem",
-                                verticalAlign: "middle",
-                              }}
-                              onClick={() => toggleExpansion(index)}
-                            >
-                              {" "}
-                              {expandedState[index] ? <i className="ion-toggle-filled"></i> : <i className="ion-toggle"></i> }
+                            {
+                              expandedState[index] || content.content.length <= 30 
+                              ? content.content : truncateContent(content.content)
+                            }
+                            <span style={{ color: "#089", fontSize: "1.8rem", verticalAlign: "middle" }} onClick={() => toggleExpansion(index)}>
+                              {expandedState[index] ? <i className="ion-toggle-filled"></i> : <i className="ion-toggle"></i>}
                             </span>
                           </>
-                        )}
-                        {!isMobile && content.content}
+                        ) : content.content}
                       </p>
                     ))}
                   </div>
@@ -84,7 +100,7 @@ export const About = () => {
                             fontSize: "1rem",
                           }}
                         >
-                          <span style={{ fontWeight: "bolder" }}>
+                          <span style={{ fontWeight: "bolder" }} translate="no">
                             {skill.content}
                           </span>
                           <span style={{ fontWeight: "light" }}>

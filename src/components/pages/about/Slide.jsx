@@ -64,7 +64,7 @@ function Slide() {
             <div className="card cardStyle" key={index}>
               {slide.svg && (
                 <div className='slideSvgStyle'>
-                  <div>
+                  <div translate='no'>
                     <h2 className="card-title" style={{ marginBottom: 0 }}>
                       {slide.title}
                     </h2>

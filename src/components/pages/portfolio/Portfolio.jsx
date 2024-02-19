@@ -35,7 +35,9 @@ export const Portfolio = () => {
             <div className="title-box text-center">
               <h1 className="title-a">Portfolio</h1>
               <p className="subtitle-a">
-                Here are some practical examples of my work. No frills, just a peek into some projects, functional simulators, work history, and student certificates that have shaped my tech skills.
+                Here are some practical examples of my work. 
+                No frills, just a peek into some projects, functional simulators, work history, 
+                and certifications that have shaped my tech skills.
               </p>
               <div className="line-mf"></div>
             </div>

@@ -154,8 +154,8 @@ export const Contact = () => {
                       <h1 className="title-left ">Get in Touch</h1>
                     </div>
                     <p style={{ textAlign: "center", fontSize:  "3vh"}} className="lead">
-                      Feel free to reach out for project discussions, collaboration 
-                      opportunities, or any inquiries related to our potential partnership. 
+                      Please feel free to reach out me to discuss projects, 
+                      collaboration opportunities, or any questions about a potential business partnership. 
                     </p>
                     <p style={{ textAlign: "center", fontSize: "3vh", fontWeight: "bold"}}> 
                       <i className="ion-android-hand"></i> Tap or hover here to send a message and get more details <i className="ion-android-open"></i>

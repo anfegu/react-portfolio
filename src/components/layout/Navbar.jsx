@@ -11,7 +11,7 @@ export const Navbar = () => {
 
   const handleSmoothScroll = (e) => {
     e.preventDefault();
-    const targetElement = document.getElementById(e.target.hash.slice(1));
+    const targetElement = document.getElementById(e.target.hash?.slice(1));
     if (targetElement) {
       window.scrollTo({
         top: targetElement.offsetTop - (window.innerWidth < 768 ? 70 : 90),
@@ -159,7 +159,7 @@ export const Navbar = () => {
               <a
                 className="nav-link js-scroll"
                 href="#about"
-                onClick={handleSmoothScroll}
+                onClick={document.documentElement.lang === 'en' ? handleSmoothScroll: null}
               >
                 About
               </a>
@@ -168,13 +168,15 @@ export const Navbar = () => {
               <a
                 className="nav-link js-scroll"
                 href="#work"
-                onClick={handleSmoothScroll}
+                onClick={document.documentElement.lang === 'en' ? handleSmoothScroll: null}
               >
                 Work
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link js-scroll" href="#contact">
+              <a className="nav-link js-scroll" 
+                 href="#contact"
+              >
                 Contact
               </a>
             </li>

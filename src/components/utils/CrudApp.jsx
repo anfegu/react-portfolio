@@ -8,14 +8,15 @@ function CrudApp() {
 
   // Function to create a new item
   const handleCreate = () => {
+    if (insertCount >= 4) {
+      alert("You can only insert up to 4 items.");
+      return;
+    }
     if (!newItem.trim()) {
       alert("Please enter a non-empty value.");
       return;
     }
-    if (insertCount >= 5) {
-      alert("You can only insert up to 5 items.");
-      return;
-    }
+    
     setData([...data, newItem]);
     setNewItem("");
     setInsertCount(insertCount + 1);
@@ -55,7 +56,7 @@ function CrudApp() {
             <ul className="list-group border bg-light rounded shadow-sm">
               {data.map((item, index) => (
                 <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
-                  <span>{item}</span>
+                  <span translate="no">{item}</span>
                   <div>
                     <button
                       type="button"

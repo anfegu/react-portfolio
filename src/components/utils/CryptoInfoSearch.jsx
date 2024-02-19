@@ -117,11 +117,11 @@ const CryptoInfoSearch = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h1 className="text-center mb-4">Crypto Global Information</h1>
-      <div className="row">
+    <div className="container mt-2">
+      <h5 className="t-headline justify-content-center" >Crypto Global Information</h5>
+      <div className="row justify-content-center">
         <div className="col-lg-6">
-          <div className="mb-3">
+          <div className="mb-2">
             <label htmlFor="cryptoSelect" className="form-label">Select a Cryptocurrency</label>
             <select id="cryptoSelect" className="form-select" value={selectedCrypto} onChange={handleCryptoChange}>
               <option value="">-- Select --</option>
@@ -131,19 +131,19 @@ const CryptoInfoSearch = () => {
             </select>
           </div>
           {currentPrice !== null ? (
-            <p className="mt-3"><b>{symbolToIdMap[selectedCrypto].toUpperCase()}</b> Current Price to USD: <b>${currentPrice}</b></p>
+            <p ><b>{symbolToIdMap[selectedCrypto].toUpperCase()}</b> Current Price to USD: <b>${currentPrice}</b></p>
           ) : (
-            <p className="mt-3">Fetching current price...</p>
+            <p >Fetching current price...</p>
           )}
           {cryptoData && (
-            <div className="mt-3">
+            <div >
               <p>Active Cryptocurrencies: <b>{cryptoData.active_cryptocurrencies}</b></p>
               <p>Ongoing ICOs: <b>{cryptoData.ongoing_icos}</b></p>
               <p>Markets: <b>{cryptoData.markets}</b></p>
             </div>
           )}
         </div>
-        <div className="col-lg-12">
+        <div className="col-lg-10" style={{ margin: '0 0 auto 2vw' }}>
           <canvas id="marketCapChart"></canvas>
         </div>
       </div>
