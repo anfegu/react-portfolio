@@ -1,2 +1,25 @@
-node_modules
+# Ignore all files ending with a tilde (~), which are often temporary files created by text editors
+*~
+
+# Ignore node_modules directory for Node.js projects
+node_modules/
+
+# Ignore log files and any other temporary files
+*.log
+*.tmp
+*.temp
+*.swp
+*.DS_Store
+
+# Ignore IDE directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Ignore environment variable files
 .env
+.env.*

@@ -150,6 +150,7 @@ export const Navbar = () => {
             <li className="nav-item">
               <a
                 className="nav-link js-scroll active"
+                translate="no"
                 href="#home"
               >
                 Home

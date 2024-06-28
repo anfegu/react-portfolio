@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import Chart from 'chart.js/auto';
 
 const CryptoInfoSearch = () => {
@@ -45,7 +45,7 @@ const CryptoInfoSearch = () => {
     fetchCryptoGlobalData();
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!cryptoData) return;
 
     const cryptoSymbols = Object.keys(cryptoData.market_cap_percentage);
