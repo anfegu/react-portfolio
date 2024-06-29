@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
-import Chart from 'chart.js/auto';
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
+import Chart from "chart.js/auto";
 
 const CryptoInfoSearch = () => {
   const [cryptoData, setCryptoData] = useState(null);
@@ -9,33 +9,37 @@ const CryptoInfoSearch = () => {
   const chartRef = useRef(null);
 
   const symbolToIdMap = {
-    "BTC": "bitcoin",
-    "ETH": "ethereum",
-    "USDT": "tether",
-    "BNB": "binancecoin",
-    "SOL": "solana",
-    "XRP": "ripple",
-    "USDC": "usd-coin",
-    "STETH": "staked-ether",
-    "ADA": "cardano",
-    "AVAX": "avalanche-2",
+    BTC: "bitcoin",
+    ETH: "ethereum",
+    USDT: "tether",
+    BNB: "binancecoin",
+    SOL: "solana",
+    XRP: "ripple",
+    USDC: "usd-coin",
+    STETH: "staked-ether",
+    ADA: "cardano",
+    AVAX: "avalanche-2",
     // Add more mappings for other cryptocurrencies
   };
 
   useEffect(() => {
     const fetchCryptoGlobalData = async () => {
       try {
-        const cachedGlobalData = sessionStorage.getItem('cryptoGlobalData');
+        const cachedGlobalData = sessionStorage.getItem("cryptoGlobalData");
         if (cachedGlobalData) {
           setCryptoData(JSON.parse(cachedGlobalData));
         } else {
-          const response = await fetch(`https://api.coingecko.com/api/v3/global`);
+          const response = await fetch(
+            `https://api.coingecko.com/api/v3/global`
+          );
           if (!response.ok) {
-            throw new Error(`API request failed with status ${response.status}`);
+            throw new Error(
+              `API request failed with status ${response.status}`
+            );
           }
           const data = await response.json();
           setCryptoData(data.data);
-          sessionStorage.setItem('cryptoGlobalData', JSON.stringify(data.data));
+          sessionStorage.setItem("cryptoGlobalData", JSON.stringify(data.data));
         }
       } catch (error) {
         setError(error.message);
@@ -49,8 +53,9 @@ const CryptoInfoSearch = () => {
     if (!cryptoData) return;
 
     const cryptoSymbols = Object.keys(cryptoData.market_cap_percentage);
-    const marketCapPercentages = cryptoSymbols.map(cryptoSymbol =>
-      cryptoData.market_cap_percentage[cryptoSymbol.toLowerCase()]
+    const marketCapPercentages = cryptoSymbols.map(
+      (cryptoSymbol) =>
+        cryptoData.market_cap_percentage[cryptoSymbol.toLowerCase()]
     );
 
     renderChart(cryptoSymbols, marketCapPercentages);
@@ -60,27 +65,29 @@ const CryptoInfoSearch = () => {
     if (chartRef.current) {
       chartRef.current.destroy();
     }
-    const ctx = document.getElementById('marketCapChart');
+    const ctx = document.getElementById("marketCapChart");
     if (ctx) {
       chartRef.current = new Chart(ctx, {
-        type: 'bar',
+        type: "bar",
         data: {
           labels: labels,
-          datasets: [{
-            label: 'Market Cap Percentage',
-            data: data,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-          }]
+          datasets: [
+            {
+              label: "Market Cap Percentage",
+              data: data,
+              backgroundColor: "rgba(54, 162, 235, 0.2)",
+              borderColor: "rgba(54, 162, 235, 1)",
+              borderWidth: 1,
+            },
+          ],
         },
         options: {
           scales: {
             y: {
-              beginAtZero: true
-            }
-          }
-        }
+              beginAtZero: true,
+            },
+          },
+        },
       });
     }
   };
@@ -118,32 +125,53 @@ const CryptoInfoSearch = () => {
 
   return (
     <div className="container mt-2">
-      <h5 className="t-headline justify-content-center" >Crypto Global Information</h5>
+      <h5 className="t-headline justify-content-center">
+        Crypto Global Information
+      </h5>
       <div className="row justify-content-center">
         <div className="col-lg-6">
           <div className="mb-2">
-            <label htmlFor="cryptoSelect" className="form-label">Select a Cryptocurrency</label>
-            <select id="cryptoSelect" className="form-select" value={selectedCrypto} onChange={handleCryptoChange}>
+            <label htmlFor="cryptoSelect" className="form-label">
+              Select a Cryptocurrency
+            </label>
+            <select
+              id="cryptoSelect"
+              className="form-select"
+              value={selectedCrypto}
+              onChange={handleCryptoChange}
+            >
               <option value="">-- Select --</option>
-              {Object.keys(symbolToIdMap).map(symbol => (
-                <option key={symbol} value={symbol}>{symbol}</option>
+              {Object.keys(symbolToIdMap).map((symbol) => (
+                <option key={symbol} value={symbol}>
+                  {symbol}
+                </option>
               ))}
             </select>
           </div>
           {currentPrice !== null ? (
-            <p ><b>{symbolToIdMap[selectedCrypto].toUpperCase()}</b> Current Price to USD: <b>${currentPrice}</b></p>
+            <p>
+              <b>{symbolToIdMap[selectedCrypto].toUpperCase()}</b> Current Price
+              to USD: <b>${currentPrice}</b>
+            </p>
           ) : (
-            <p >Fetching current price...</p>
+            <p>Fetching current price...</p>
           )}
           {cryptoData && (
-            <div >
-              <p>Active Cryptocurrencies: <b>{cryptoData.active_cryptocurrencies}</b></p>
-              <p>Ongoing ICOs: <b>{cryptoData.ongoing_icos}</b></p>
-              <p>Markets: <b>{cryptoData.markets}</b></p>
+            <div>
+              <p>
+                Active Cryptocurrencies:{" "}
+                <b>{cryptoData.active_cryptocurrencies}</b>
+              </p>
+              <p>
+                Ongoing ICOs: <b>{cryptoData.ongoing_icos}</b>
+              </p>
+              <p>
+                Markets: <b>{cryptoData.markets}</b>
+              </p>
             </div>
           )}
         </div>
-        <div className="col-lg-10" style={{ margin: '0 0 auto 2vw' }}>
+        <div className="col-lg-10" style={{ margin: "0 0 auto 2vw" }}>
           <canvas id="marketCapChart"></canvas>
         </div>
       </div>

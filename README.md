@@ -2,13 +2,12 @@
 
 ## About
 
-My developer portfolio is expertly constructed, incorporating advanced React methodologies along with tools like TypeScript for robust, type-safe JavaScript, Tailwind CSS for streamlined, utility-first styling, and Webpack for efficient bundling and asset management. Within the portfolio, I briefly showcase my skills and offer snippets from previous experiences to illustrate my expertise.
+My developer portfolio is expertly constructed, incorporating advanced React methodologies along with tools like TypeScript for robust, type-safe JavaScript, SCSS for streamlined, utility-first styling, and Webpack for efficient bundling and asset management. Within the portfolio, I briefly showcase my skills and offer snippets from previous experiences to illustrate my expertise.
 
 ## Technologies 🛠️
 
 - **React**: Utilized for building interactive and responsive user interfaces.
 - **TypeScript**: Ensures robust, type-safe JavaScript code.
-- **Tailwind CSS**: Applied for utility-first styling to streamline UI development.
 - **Webpack**: Manages asset bundling for optimized performance.
 
 ## Highlights ✨
@@ -34,4 +33,4 @@ Feel free to connect with me for potential collaborations through the following 
 - **ANFEGU LinkedIn**: [Senior Software Developer | Blockchain Proficient](https://www.linkedin.com/in/anfegu/)
 - **ANFEGU GitHub**: [ Engineering Technological Advancement with Creative Solutions ](https://github.com/anfegu)
 
-Thank you for visiting my portfolio. I look forward to connecting with you!
+Thank you for visiting my portfolio!

@@ -1,5 +1,14 @@
 import CrudApp from "../components/utils/CrudApp.jsx";
 import CryptoInfoSearch from "../components/utils/CryptoInfoSearch.jsx";
+import EmblaCarousel from "../components/utils/carousel/EmblaCarousel";
+
+// For Carousel Props
+const OPTIONS = {
+  dragFree: true,
+  loop: true,
+};
+const SLIDE_COUNT = 5;
+const SLIDES = Array.from(Array(SLIDE_COUNT)).map((_, index) => index);
 
 // Categories
 export const categories = [
@@ -17,6 +26,8 @@ export const categories = [
       {
         title: "Ecommerce NFT Mobile App",
         srcScreen: "",
+        component: EmblaCarousel,
+        componentProps: { slides: SLIDES, options: OPTIONS },
       },
       {
         title: "Crypto Market Analysis with Caching",
@@ -39,6 +50,8 @@ export const categories = [
       {
         title: "Rust Rocket WebServer",
         srcScreen: "",
+        component: EmblaCarousel,
+        componentProps: { slides: SLIDES, options: OPTIONS },
       },
       {
         title: "Axium & Diesel Rust",
@@ -69,6 +82,8 @@ export const categories = [
       {
         title: "Task Management System",
         srcScreen: "",
+        component: EmblaCarousel,
+        componentProps: { slides: SLIDES, options: OPTIONS },
       },
       {
         title: "E-commerce Product Showcase",
@@ -98,6 +113,8 @@ export const categories = [
       {
         title: "Integrated Transactional System",
         srcScreen: "",
+        component: EmblaCarousel,
+        componentProps: { slides: SLIDES, options: OPTIONS },
       },
       {
         title: "Apple Pay Integration",
@@ -115,6 +132,8 @@ export const categories = [
       {
         title: "Full Stack Web Applications",
         srcScreen: "",
+        component: EmblaCarousel,
+        componentProps: { slides: SLIDES, options: OPTIONS },
       },
       {
         title: "Future of Work in a Software-Driven Economy",
